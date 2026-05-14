@@ -1,30 +1,17 @@
 extends CharacterBody2D
 @onready var time = $AnimatedSprite2D/Timer
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 150.0
+const JUMP_VELOCITY = -350.0
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
 	if Input.is_action_just_pressed("Pulo") and is_on_floor():
-		time.start(0.5)
-		print("erapapula????")
-		if Input.is_action_just_released("Pulo") and not time.is_stopped():
-			print("Pulomaisbaixo????")
-			pass
-			velocity.y = JUMP_VELOCITY
-		if Input.is_action_just_released("Pulo") and time.is_stopped():
-			print("Pulomaisalto????")
-			pass
-			velocity.y = JUMP_VELOCITY*2
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_released("Pulo") and velocity.y < 0 and not is_on_floor():
+		velocity.y *= 0
 	var direction := Input.get_axis("Direita","Esquerda")
 	if direction:
 		velocity.x = direction * SPEED
@@ -34,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 	if velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true
-	if velocity.x != 0:
+	if velocity.x != 0 and velocity.y == 0:
 		$AnimatedSprite2D.play("Walk")
 		$AnimatedSprite2D.speed_scale = velocity.x / 50
 	else :
@@ -43,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > 0:
 		$AnimatedSprite2D.play("Jump")
 	move_and_slide()
+	if Input.is_action_just_pressed("ui_accept"):
+		print("JOGAOTOMATEEE")
 
 
 func _on_timer_timeout() -> void:

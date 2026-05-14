@@ -86,7 +86,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qo5gs"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1clno"]
+radius = 4.0
+height = 14.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1045322586]
 script = ExtResource("1_yknpa")
@@ -98,6 +100,7 @@ animation = &"Jump"
 [node name="Timer" type="Timer" parent="AnimatedSprite2D" unique_id=1482733032]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658032353]
-shape = SubResource("CapsuleShape2D_qo5gs")
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_1clno")
 
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cc4u0pnvuvo13"]
+
+[ext_resource type="Script" uid="uid://bn22e4x0jidlp" path="res://rigid_body_2d.gd" id="1_utvqs"]
+[ext_resource type="Texture2D" uid="uid://d3ym5acissi12" path="res://Tomato Roll.png" id="2_2bqoy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1xhd"]
+atlas = ExtResource("2_2bqoy")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owyin"]
+atlas = ExtResource("2_2bqoy")
+region = Rect2(7, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0deh8"]
+atlas = ExtResource("2_2bqoy")
+region = Rect2(0, 7, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfibu"]
+atlas = ExtResource("2_2bqoy")
+region = Rect2(7, 7, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsrol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1xhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owyin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0deh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfibu")
+}],
+"loop": 1,
+"name": &"Giro",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rxxq"]
+radius = 4.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1949809588]
+script = ExtResource("1_utvqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1842242498]
+sprite_frames = SubResource("SpriteFrames_lsrol")
+animation = &"Giro"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762413087]
+shape = SubResource("CircleShape2D_3rxxq")
