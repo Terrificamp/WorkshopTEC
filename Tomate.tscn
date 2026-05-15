@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bn22e4x0jidlp" path="res://rigid_body_2d.gd" id="1_utvqs"]
 [ext_resource type="Texture2D" uid="uid://d3ym5acissi12" path="res://Tomato Roll.png" id="2_2bqoy"]
+[ext_resource type="Texture2D" uid="uid://barounfjsp6w3" path="res://Tomato Exploded.png" id="3_e1xhd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1xhd"]
 atlas = ExtResource("2_2bqoy")
@@ -19,6 +20,10 @@ region = Rect2(0, 7, 7, 7)
 atlas = ExtResource("2_2bqoy")
 region = Rect2(7, 7, 7, 7)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsrol"]
+atlas = ExtResource("3_e1xhd")
+region = Rect2(0, 0, 10, 10)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_lsrol"]
 animations = [{
 "frames": [{
@@ -34,20 +39,77 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qfibu")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Giro",
 "speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsrol")
+}],
+"loop": true,
+"name": &"Pop",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rxxq"]
 radius = 4.0
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1949809588]
+[sub_resource type="Animation" id="Animation_e1xhd"]
+resource_name = "Despawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_owyin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0deh8"]
+_data = {
+&"Despawn": SubResource("Animation_e1xhd"),
+&"RESET": SubResource("Animation_owyin")
+}
+
+[node name="Tomato" type="RigidBody2D" unique_id=1949809588]
+collision_layer = 2
+collision_mask = 2
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_utvqs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1842242498]
 sprite_frames = SubResource("SpriteFrames_lsrol")
 animation = &"Giro"
+autoplay = "Giro"
+
+[node name="Timer" type="Timer" parent="AnimatedSprite2D" unique_id=846966181]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762413087]
 shape = SubResource("CircleShape2D_3rxxq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2020883339]
+libraries/ = SubResource("AnimationLibrary_0deh8")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
