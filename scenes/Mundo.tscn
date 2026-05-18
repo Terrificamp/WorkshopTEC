@@ -75,10 +75,10 @@ tile_set = SubResource("TileSet_xywc0")
 [node name="Jenkins" parent="." unique_id=1045322586 instance=ExtResource("2_ubi47")]
 position = Vector2(323, 553)
 
-[node name="Boss_R" parent="." unique_id=2031104383 instance=ExtResource("4_v2iww")]
+[node name="Boss1" parent="." unique_id=2031104383 instance=ExtResource("4_v2iww")]
 position = Vector2(541, 581)
 
-[node name="Boss_L" parent="." unique_id=233494568 instance=ExtResource("4_v2iww")]
+[node name="Boss2" parent="." unique_id=233494568 instance=ExtResource("4_v2iww")]
 position = Vector2(87, 581)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2121575161]
