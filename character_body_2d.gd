@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 @onready var time = $AnimatedSprite2D/Timer
 @export var tomato_scene: PackedScene
 @export var throw_interval := 0.6 
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = true
 
 	if not doing_action:
-		if velocity.y > 0:
+		if velocity.y != 0:
 			$AnimatedSprite2D.play("Jump")
 		elif velocity.x != 0 and velocity.y == 0:
 			$AnimatedSprite2D.play("Walk")
