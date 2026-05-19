@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 @onready var time = $AnimatedSprite2D/Timer
 @export var tomato_scene: PackedScene
+@export var hitbox_scene: PackedScene
 @export var throw_interval := 0.6 
 @export var damage_marker_scene: PackedScene
 @onready var camera: Camera2D = $"../Camera2D"
@@ -73,6 +74,7 @@ func _physics_process(delta: float) -> void:
 		Ataque()
 func take_damage(amount: int) -> void:
 	if dying == false:
+		doing_action = false
 		$AnimatedSprite2D.play("Hit")
 		camera.shake(8.0, 0.3)
 		Global.jenkinshp = Global.jenkinshp - amount
@@ -130,8 +132,13 @@ func _throw_tomato() -> void:
 	await $AnimatedSprite2D.animation_finished
 	doing_action = false
 func Ataque() -> void:
-	if velocity.x != 0 and velocity.y == 0:
+	if velocity.x != 0 and velocity.y == 0 and doing_action == false:
 			doing_action = true
+			var ataque = hitbox_scene.instantiate() as Area2D
+			var attackpoint: CharacterBody2D = $"."
+			ataque.global_position = attackpoint.global_position
+			var throw_dir := Vector2(facing_direction, -0.2).normalized()
+			get_tree().current_scene.add_child(ataque)
 			$Swing.pitch_scale = randf_range(1.5, 2.0)
 			$Swing.play()
 			$AnimatedSprite2D.speed_scale = 1
@@ -139,8 +146,13 @@ func Ataque() -> void:
 			await $AnimatedSprite2D.animation_finished
 			doing_action = false
 			$AnimatedSprite2D.speed_scale = 0
-	elif not velocity.x != 0 and velocity.y == 0:
+	elif not velocity.x != 0 and velocity.y == 0 and doing_action == false:
 			doing_action = true
+			var ataque = hitbox_scene.instantiate() as Area2D
+			var attackpoint: CharacterBody2D = $"."
+			ataque.global_position = attackpoint.global_position
+			var throw_dir := Vector2(facing_direction, -0.2).normalized()
+			get_tree().current_scene.add_child(ataque)
 			$Swing.pitch_scale = randf_range(1.5, 2.0)
 			$Swing.play()
 			$AnimatedSprite2D.speed_scale = 1
@@ -148,7 +160,7 @@ func Ataque() -> void:
 			await $AnimatedSprite2D.animation_finished
 			doing_action = false
 			$AnimatedSprite2D.speed_scale = 0
-	if velocity.y != 0:
+	if velocity.y != 0 and doing_action == false:
 			velocity.y =+ 400
 			doing_action = true
 			$Swing.pitch_scale = randf_range(1.5, 2.0)
@@ -156,6 +168,12 @@ func Ataque() -> void:
 			$AnimatedSprite2D.speed_scale = 1
 			$AnimatedSprite2D.play("AttackDwn")
 			await touchingfloor
+			doing_action = true
+			var ataque = hitbox_scene.instantiate() as Area2D
+			var attackpoint: CharacterBody2D = $"."
+			ataque.global_position = attackpoint.global_position
+			var throw_dir := Vector2(facing_direction, -0.2).normalized()
+			get_tree().current_scene.add_child(ataque)
 			$CrashDwn.emitting = true
 			doing_action = false
 			$AnimatedSprite2D.speed_scale = 0
