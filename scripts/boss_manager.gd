@@ -10,6 +10,7 @@ var life_phase1 = 85#20 - 1| 25 - 2| 40 - 3
 var phase = 1# 1,2,3
 
 func _ready():
+	
 
 	boss1.is_real = false
 	boss1.can_attack = false
@@ -28,6 +29,13 @@ func start_attack_loop() -> void:
 
 
 func switch_boss(): #implement the animations
+
+	$"../Boss1/AnimatedSprite2D".play("hit")
+	await $"../Boss1/AnimatedSprite2D".animation_finished
+	
+	$"../Boss2/AnimatedSprite2D".play("hit")
+	await $"../Boss2/AnimatedSprite2D".animation_finished
+
 
 	boss1.is_real = !boss1.is_real
 	boss2.is_real = !boss2.is_real
