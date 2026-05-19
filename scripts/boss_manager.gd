@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		
 	
 func start_attack_loop() -> void:
-	while true:
+	while Global.phase == 1:
 		await get_tree().create_timer(15).timeout
 		switch_boss()
 
@@ -50,12 +50,7 @@ func switch_boss(): #implement the animations
 func _take_damege(amount,  boss) -> void:
 	Global.boss_life -= amount
 	print("asddddddddd")
-	if Global.boss_life >= 65:
-		Global.phase = 1
-	elif Global.boss_life >= 40:
-		Global.phase = 2	
-	elif Global.boss_life >= 20:
-		Global.phase = 3
+
 	
 	
 	
