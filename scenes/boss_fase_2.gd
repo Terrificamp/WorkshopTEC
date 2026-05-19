@@ -69,8 +69,14 @@ func attack() -> void:
 	
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerProjectile"):
-		Global.boss_life_2 -= 1.5
+		Global.boss_life_2 -= 1
 		print(Global.boss_life_2)
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout
+		brilho.set_shader_parameter("flash_amount", 0)
+		
+	elif area.is_in_group("HitPlayer"):
+		Global.boss_life_2 -= 1
+		brilho.set_shader_parameter("flash_amount", 0.5)
+		await get_tree().create_timer(0.1).timeout 
 		brilho.set_shader_parameter("flash_amount", 0)
