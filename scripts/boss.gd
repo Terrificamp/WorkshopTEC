@@ -9,7 +9,9 @@ var projetil_direction
 
 func _ready() -> void:
 	start_attack_loop()
-	brilho.duplicate()
+	# Reatribui o material duplicado ao sprite
+	$AnimatedSprite2D.material = brilho.duplicate()
+	brilho = $AnimatedSprite2D.material
 
 
 func start_attack_loop() -> void:
@@ -59,14 +61,6 @@ func _attack_phase1() -> void:
 
 func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
 	if !is_real:
-		if area.is_in_group("PlayerProjectile"):
-			brilho.set_shader_parameter("flash_amount", 0.5)
-			await get_tree().create_timer(0.1).timeout 
-			brilho.set_shader_parameter("flash_amount", 0)
-		elif area.is_in_group("HitPlayer"):
-			brilho.set_shader_parameter("flash_amount", 0.5)
-			await get_tree().create_timer(0.1).timeout 
-			brilho.set_shader_parameter("flash_amount", 0)
 		return
 	print(area.name)
 	if area.is_in_group("PlayerProjectile"):
