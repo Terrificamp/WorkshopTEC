@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b1bmu1h8bg5xx" path="res://sprites/Junkins 32/Junkins Dying.png" id="4_pxny4"]
 [ext_resource type="Texture2D" uid="uid://b4w0hsgwbvsxx" path="res://sprites/Junkins 32/Junkins Dash.png" id="4_sjuf0"]
 [ext_resource type="Texture2D" uid="uid://qmjl38ddrehl" path="res://sprites/Junkins 32/Junkins Meele L R.png" id="4_sv2bb"]
+[ext_resource type="AudioStream" uid="uid://dtx4p5ffvrqtx" path="res://Sounds/400 Sounds Pack/Musical Effects/synth_bass_defeated.wav" id="5_2agh7"]
 [ext_resource type="Texture2D" uid="uid://ckiq870lf3vih" path="res://sprites/Junkins 32/Junkins Meele Down.png" id="5_uct0u"]
 [ext_resource type="Texture2D" uid="uid://3h7ebw5iupyt" path="res://sprites/Junkins 32/Junkins Meele L R while walking.png" id="6_4p8vt"]
 [ext_resource type="AudioStream" uid="uid://bemcte4x5xl4y" path="res://Sounds/400 Sounds Pack/Other/whoosh_1.wav" id="7_wcoi3"]
@@ -21,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://cgv3dwveba77i" path="res://sprites/Junkins 32/Junkins Dash VFX.png" id="16_8qne3"]
 [ext_resource type="AudioStream" uid="uid://ccw7nfc0fa1ol" path="res://Sounds/SwordSlash.mp3" id="20_pa385"]
 [ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="21_pa385"]
+[ext_resource type="AudioStream" uid="uid://0ptkocag66cp" path="res://Sounds/400 Sounds Pack/Retro/hurt.wav" id="22_5o1bk"]
+[ext_resource type="AudioStream" uid="uid://cbgufcuq4lwgf" path="res://Sounds/400 Sounds Pack/Retro/explosion_large.wav" id="24_vr420"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2agh7"]
 atlas = ExtResource("4_sv2bb")
@@ -337,6 +340,9 @@ tomato_scene = ExtResource("2_sohmc")
 hitbox_scene = ExtResource("3_4p8vt")
 damage_marker_scene = ExtResource("3_ihh7x")
 
+[node name="Dying" type="AudioStreamPlayer2D" parent="." unique_id=532555984]
+stream = ExtResource("5_2agh7")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=63621339]
 sprite_frames = SubResource("SpriteFrames_d2b0d")
 animation = &"Attack"
@@ -425,6 +431,12 @@ offset_top = -35.0
 offset_right = -23.0
 offset_bottom = -35.0
 scale = Vector2(0.1, 0.1)
+
+[node name="Gothit" type="AudioStreamPlayer2D" parent="." unique_id=771526026]
+stream = ExtResource("22_5o1bk")
+
+[node name="Died" type="AudioStreamPlayer2D" parent="." unique_id=1061398029]
+stream = ExtResource("24_vr420")
 
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

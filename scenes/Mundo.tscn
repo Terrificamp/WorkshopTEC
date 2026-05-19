@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhtntb1abskjv" path="res://scenes/bossManager.tscn" id="4_hak2e"]
 [ext_resource type="PackedScene" uid="uid://b0wqkyk2vxsbt" path="res://scenes/boss.tscn" id="4_v2iww"]
 [ext_resource type="Script" uid="uid://f5cdk4e0da2h" path="res://scripts/damage_2.gd" id="5_e0tb3"]
+[ext_resource type="Script" uid="uid://kihchcdcowxv" path="res://scenes/h_box_container.gd" id="7_1typj"]
 [ext_resource type="Texture2D" uid="uid://e0ijd7xffxo7" path="res://Coração cheio.png" id="7_7eujk"]
 [ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="7_87qcp"]
 [ext_resource type="Texture2D" uid="uid://3pc3scc0u06d" path="res://sprites/Fundo.png" id="9_bpq2i"]
@@ -166,29 +167,35 @@ offset_left = -276.0
 offset_top = -151.0
 offset_right = 166.0
 offset_bottom = 40.0
+script = ExtResource("7_1typj")
 
-[node name="Heart4" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=929323064]
+[node name="Heart1" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=739147345]
 layout_mode = 2
+offset_transform_enabled = true
 texture = ExtResource("7_7eujk")
 stretch_mode = 4
 
-[node name="Heart3" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=1683962855]
+[node name="Heart2" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=1578333899]
 layout_mode = 2
+offset_transform_enabled = true
 texture = ExtResource("7_7eujk")
 stretch_mode = 4
 
-[node name="Heart2" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=1419854675]
+[node name="Heart3" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=48900471]
 layout_mode = 2
+offset_transform_enabled = true
 texture = ExtResource("7_7eujk")
 stretch_mode = 4
 
-[node name="Heart1" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=474473754]
+[node name="Heart4" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=2036516544]
 layout_mode = 2
+offset_transform_enabled = true
 texture = ExtResource("7_7eujk")
 stretch_mode = 4
 
-[node name="Heart5" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=384579938]
+[node name="Heart5" type="TextureRect" parent="Camera2D/Control/HBoxContainer" unique_id=474473754]
 layout_mode = 2
+offset_transform_enabled = true
 texture = ExtResource("7_7eujk")
 stretch_mode = 4
 
@@ -205,12 +212,11 @@ rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=403036714]
-visible = false
 z_index = 10
-offset_left = 45.0
-offset_top = 373.0
-offset_right = 601.0
-offset_bottom = 707.0
+offset_left = -50.0
+offset_top = 302.0
+offset_right = 723.0
+offset_bottom = 753.0
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=837273632]

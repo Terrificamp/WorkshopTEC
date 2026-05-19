@@ -86,28 +86,18 @@ func take_damage(amount: int) -> void:
 		camera.shake(8.0, 0.3)
 		Global.jenkinshp = Global.jenkinshp - amount
 		if Global.jenkinshp <= 0:
+			$Dying.play()
 			dying = true
 			doing_action = true
 			SPEED = 0
 			$AnimatedSprite2D.play("Dying")
 			await $AnimatedSprite2D.animation_finished
+			$Died.play()
 			$"../ColorRect/AnimationPlayer".play("Endgame")
 			await $"../ColorRect/AnimationPlayer".animation_finished
 			get_tree().reload_current_scene()
 		else:
-			spawn_damage_marker(amount)
-func spawn_damage_marker(scale) -> void:
-	var marker = damage_marker_scene.instantiate()
-	camera.add_child(marker)
-	var viewport_rect = get_viewport().get_visible_rect()
-	var half_w = (viewport_rect.size.x / 2.0) / camera.zoom.x
-	var half_h = (viewport_rect.size.y / 2.0) / camera.zoom.y
-	marker.position = Vector2(
-		randf_range(-half_w, half_w),
-		randf_range(-half_h, half_h)
-	)
-	var s = clamp(scale * 0.2, 1, 6)
-	marker.scale = Vector2(s, s)
+			$Gothit.play()
 func _do_dash() -> void:
 	if Global.speciallevel <= 35:
 		return

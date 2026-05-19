@@ -2,17 +2,12 @@ extends Node2D
 
 @onready var boss1 = $"../Boss1"
 @onready var boss2 = $"../Boss2"
-@onready var boss1Shader = $"../Boss1/AnimatedSprite2D".material
-@onready var boss2Shader = $"../Boss2/AnimatedSprite2D".material
 @onready var boss1Anime = $"../Boss1/AnimatedSprite2D"
 @onready var boss2Anime = $"../Boss2/AnimatedSprite2D"
 
 
 
 func _ready():
-	Global.take_damage_boss1.connect(flashboss1)
-	Global.take_damage_boss2.connect(flashboss2)
-
 	boss1.is_real = false
 	boss1.can_attack = false
 	boss1.projetil_direction = Global.direction_projetil_boss1
@@ -68,16 +63,6 @@ func switch_boss(): #implement the animations
 
 	print("Trocaram!")
 	
-func flashboss1():
-	boss1Shader.set_shader_parameter("flash_amount", 0.5)
-	await get_tree().create_timer(0.1).timeout 
-	boss1Shader.set_shader_parameter("flash_amount", 0)
-func flashboss2():
-	boss2Shader.set_shader_parameter("flash_amount", 0.5)
-	await get_tree().create_timer(0.1).timeout 
-	boss2Shader.set_shader_parameter("flash_amount", 0)
-
-
 	
 	
 	
