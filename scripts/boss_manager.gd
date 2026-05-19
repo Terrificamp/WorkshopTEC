@@ -28,3 +28,8 @@ func switch_boss(): #implement the animations
 	boss2.can_attack = !boss2.can_attack
 
 	print("Trocaram!")
+	
+	
+	
+	
+	

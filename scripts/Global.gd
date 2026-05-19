@@ -5,6 +5,8 @@ var direction_projetil_boss1 = -1
 var direction_projetil_boss2 = 1
 signal take_damege_player
 signal take_damege_boss
+var life_phase1 = 85#20 - 1| 25 - 2| 40 - 3
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
