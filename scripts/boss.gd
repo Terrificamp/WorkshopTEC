@@ -3,8 +3,12 @@ extends CharacterBody2D
 @export var projetil_scene: PackedScene
 var is_real = false
 var can_attack = false
+var 
 var projetil_direction 
-var is_attacking = false
+
+
+
+
 
 func _ready() -> void:
 	start_attack_loop()
