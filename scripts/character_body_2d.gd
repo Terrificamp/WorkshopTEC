@@ -67,6 +67,10 @@ func _physics_process(delta: float) -> void:
 		$Area2D/hurtbox.disabled = false
 	if throw_cooldown > 0.0:
 		throw_cooldown -= delta
+	if Input.is_action_pressed("Tomate") and Input.is_action_pressed("Cima") and throw_cooldown <= 0.0 and not doing_action:
+		$Throw.pitch_scale = randf_range(0.9, 1.3)
+		$Throw.play()
+		_throw_tomatoup()
 	if Input.is_action_pressed("Tomate") and throw_cooldown <= 0.0 and not doing_action:
 		$Throw.pitch_scale = randf_range(0.9, 1.3)
 		$Throw.play()
@@ -132,6 +136,21 @@ func _throw_tomato() -> void:
 	var throw_dir := Vector2(facing_direction, -0.2).normalized()
 	get_tree().current_scene.add_child(tomato)
 	tomato.launch(throw_dir, velocity)
+	await $AnimatedSprite2D.animation_finished
+	doing_action = false
+func _throw_tomatoup() -> void:
+	if Global.speciallevel <= 10:
+		return
+	Global.speciallevel -= 10
+	doing_action = true
+	$AnimatedSprite2D.speed_scale = 1
+	$AnimatedSprite2D.play("ThrowTomato")
+	var tomato = tomato_scene.instantiate() as RigidBody2D
+	var throw_point: Marker2D = $ThrowPoint
+	tomato.global_position = throw_point.global_position
+	var throw_dir := Vector2(facing_direction, -0.2).normalized()
+	get_tree().current_scene.add_child(tomato)
+	tomato.launchUP(throw_dir, velocity)
 	await $AnimatedSprite2D.animation_finished
 	doing_action = false
 func Ataque() -> void:

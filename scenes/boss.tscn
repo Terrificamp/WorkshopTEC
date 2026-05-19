@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgn7nig2jmdr6" path="res://sprites/Espantalho/Forma 1 Morte.png" id="2_r3bxh"]
 [ext_resource type="PackedScene" uid="uid://ble6ee6dquuan" path="res://scenes/projetilBoss.tscn" id="2_wqpjq"]
 [ext_resource type="Texture2D" uid="uid://b7xnvsstfhm2i" path="res://sprites/Espantalho/Espantalho/Forma 2 atacando 80.png" id="3_0onds"]
+[ext_resource type="Shader" uid="uid://nvl47ow6r0t4" path="res://scenes/boss.gdshader" id="3_lfs1x"]
 [ext_resource type="Texture2D" uid="uid://bydtlw6u43jch" path="res://sprites/Espantalho/Forma 1 idle 80.png" id="3_wqpjq"]
 [ext_resource type="Texture2D" uid="uid://b1m3afvpiwh6x" path="res://sprites/Espantalho/Forma 1 preparando 80.png" id="4_2cdgk"]
 [ext_resource type="Texture2D" uid="uid://b32ilqt2k2kow" path="res://sprites/Espantalho/Forma 1 sumindo 80.png" id="4_wqpjq"]
@@ -11,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://d021yttpdp30a" path="res://sprites/Espantalho/Espantalho/Forma 2 idle 80.png" id="8_8eiau"]
 [ext_resource type="Texture2D" uid="uid://b60o6g6oe7j66" path="res://sprites/Espantalho/Espantalho/Forma 2 preparando ataque 80.png" id="10_vn2fc"]
 [ext_resource type="Texture2D" uid="uid://dse14budk4td5" path="res://sprites/Espantalho/Espantalho/Forma 2 esmagando 80.png" id="11_gqd3i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8eiau"]
+shader = ExtResource("3_lfs1x")
+shader_parameter/flash_amount = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsl3t"]
 atlas = ExtResource("2_r3bxh")
@@ -701,6 +706,14 @@ radius = 34.0147
 radius = 20.0
 height = 70.0
 
+[sub_resource type="Animation" id="Animation_vn2fc"]
+resource_name = "Damage"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqd3i"]
+_data = {
+&"Damage": SubResource("Animation_vn2fc")
+}
+
 [node name="Boss" type="CharacterBody2D" unique_id=2031104383]
 collision_layer = 3
 collision_mask = 3
@@ -708,32 +721,42 @@ script = ExtResource("1_qnbj4")
 projetil_scene = ExtResource("2_wqpjq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=221126839]
+material = SubResource("ShaderMaterial_8eiau")
 position = Vector2(1, 3)
 sprite_frames = SubResource("SpriteFrames_1wya7")
 animation = &"idle_fase1"
 autoplay = "idle_fase1"
 
 [node name="colisao_fase2" type="CollisionShape2D" parent="." unique_id=1303021779]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_vu5x8")
 
 [node name="colisao_fase1" type="CollisionShape2D" parent="." unique_id=1372706652]
+visible = false
 position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_i78ob")
 
 [node name="hurtbox_fase2" type="Area2D" parent="." unique_id=1048525140]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase2" unique_id=76961577]
+visible = false
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_3uowd")
 
 [node name="hurtbox_fase1" type="Area2D" parent="." unique_id=1407293056]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase1" unique_id=331762291]
+visible = false
 position = Vector2(5, 3)
 shape = SubResource("CapsuleShape2D_qnbj4")
 
 [node name="Timer" type="Timer" parent="." unique_id=1425866346]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=167423114]
+libraries/ = SubResource("AnimationLibrary_gqd3i")
 
 [connection signal="area_entered" from="hurtbox_fase2" to="." method="_on_hurtbox_fase_2_area_entered"]
 [connection signal="body_entered" from="hurtbox_fase2" to="." method="_on_hurtbox_fase_2_body_entered"]

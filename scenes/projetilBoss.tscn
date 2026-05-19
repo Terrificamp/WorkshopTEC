@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1n1sw7slmh1k" path="res://scripts/projetil_boss.gd" id="1_gih3g"]
 [ext_resource type="Texture2D" uid="uid://bb0knpmmw57jg" path="res://sprites/Espantalho/Forma 1 Projétil 40.png" id="1_wlkl4"]
+[ext_resource type="Texture2D" uid="uid://pkhbh0ji81u" path="res://Espantalho/Forma 1 Projetil VFX 40.png" id="3_rghd0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wlkl4"]
 atlas = ExtResource("1_wlkl4")
@@ -42,12 +43,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gih3g"]
 radius = 19.104973
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yil7q"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_rghd0"]
+offsets = PackedFloat32Array(0.42118227, 1)
+colors = PackedColorArray(1, 0.6824624, 0.85927314, 1, 1, 1, 1, 0)
+
 [node name="ProjetilBoss" type="CharacterBody2D" unique_id=243541008 groups=["Projectile"]]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_gih3g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=127981518]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_ux1p0")
 animation = &"idle"
 autoplay = "idle"
@@ -56,3 +68,19 @@ frame_progress = 0.096272245
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=739408227]
 position = Vector2(2, 1)
 shape = SubResource("CircleShape2D_gih3g")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1075318968]
+z_index = 2
+material = SubResource("CanvasItemMaterial_yil7q")
+amount = 80
+texture = ExtResource("3_rghd0")
+lifetime = 2.0
+speed_scale = 2.0
+fixed_fps = 30
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+color_ramp = SubResource("Gradient_rghd0")
+anim_speed_min = 1.0
+anim_speed_max = 3.0

@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var brilho =	$AnimatedSprite2D.material
 @export var projetil_scene: PackedScene
 var is_real = false
 var can_attack = false
@@ -9,7 +9,7 @@ var projetil_direction
 
 func _ready() -> void:
 	start_attack_loop()
-	
+	brilho.duplicate()
 
 
 func start_attack_loop() -> void:
@@ -33,7 +33,7 @@ func _throw_projetil() -> void:
 	
 	var projetil = projetil_scene.instantiate() as CharacterBody2D
 	get_parent().add_child(projetil)
-	projetil.global_position = Vector2(global_position.x,global_position.y +30.0)
+	projetil.global_position = Vector2(global_position.x,global_position.y +20.0)
 
 	
 	print("teste 1 - global", projetil.global_position )
@@ -59,14 +59,26 @@ func _attack_phase1() -> void:
 
 func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
 	if !is_real:
+		if area.is_in_group("PlayerProjectile"):
+			brilho.set_shader_parameter("flash_amount", 0.5)
+			await get_tree().create_timer(0.1).timeout 
+			brilho.set_shader_parameter("flash_amount", 0)
+		elif area.is_in_group("HitPlayer"):
+			brilho.set_shader_parameter("flash_amount", 0.5)
+			await get_tree().create_timer(0.1).timeout 
+			brilho.set_shader_parameter("flash_amount", 0)
 		return
 	print(area.name)
 	if area.is_in_group("PlayerProjectile"):
 		Global.boss_life -= 1.5
-		print(Global.boss_life)
+		brilho.set_shader_parameter("flash_amount", 0.5)
+		await get_tree().create_timer(0.1).timeout 
+		brilho.set_shader_parameter("flash_amount", 0)
 	elif area.is_in_group("HitPlayer"):
 		Global.boss_life -= 1
-		
+		brilho.set_shader_parameter("flash_amount", 0.5)
+		await get_tree().create_timer(0.1).timeout 
+		brilho.set_shader_parameter("flash_amount", 0)
 	if Global.boss_life >= 65:
 		Global.phase = 1
 	elif Global.boss_life >= 40:

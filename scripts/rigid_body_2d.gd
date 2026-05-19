@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed := 700.0
+var speed := 400.0
 var trail: Line2D
 var max_trail_points := 40
 
@@ -24,9 +24,7 @@ func _ready() -> void:
 
 func launch(direction: Vector2, playerspeed: Variant) -> void:
 	linear_velocity = direction * speed + playerspeed
-	linear_velocity.y = -250
-func launchUP(direction: Vector2, playerspeed: Variant) -> void:
-	linear_velocity.y = -850
+	linear_velocity.y = -150
 
 func _process(delta: float) -> void:
 	trail.add_point(global_position)
