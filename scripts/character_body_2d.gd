@@ -17,7 +17,7 @@ var onfloor = false
 signal touchingfloor
 func _ready() -> void:
 	Global.take_damege_player.connect(take_damage)
-	Global.jenkinshp = 100
+	Global.jenkinshp = 5
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		onfloor = true
@@ -79,8 +79,8 @@ func take_damage(amount: int) -> void:
 			SPEED = 0
 			$AnimatedSprite2D.play("Dying")
 			await $AnimatedSprite2D.animation_finished
-			$ColorRect/AnimationPlayer.play("Endgame")
-			await $ColorRect/AnimationPlayer.animation_finished
+			$"../ColorRect/AnimationPlayer".play("Endgame")
+			await $"../ColorRect/AnimationPlayer".animation_finished
 			get_tree().reload_current_scene()
 		else:
 			spawn_damage_marker(amount)
@@ -161,3 +161,9 @@ func Ataque() -> void:
 
 func _on_timer_timeout() -> void:
 	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body.name)
+	if body.is_in_group("Projectile"):
+		Global.take_damege_player.emit(1)

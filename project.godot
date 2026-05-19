@@ -28,6 +28,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Novo Projeto de Jogo"
 
+[global_group]
+
+Projectile=""
+
 [input]
 
 Direita={
