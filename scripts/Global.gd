@@ -3,7 +3,8 @@ extends Node
 @onready var speciallevel = 100
 var direction_projetil_boss1 = -1
 var direction_projetil_boss2 = 1
-signal take_damege
+signal take_damege_player
+signal take_damege_boss
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
