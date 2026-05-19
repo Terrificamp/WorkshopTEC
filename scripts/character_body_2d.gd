@@ -184,7 +184,7 @@ func Ataque() -> void:
 			await $AnimatedSprite2D.animation_finished
 			doing_action = false
 			$AnimatedSprite2D.speed_scale = 0
-	if velocity.y != 0 and doing_action == false:
+	if velocity.y != 0 and Input.is_action_pressed("Baixo") and doing_action == false:
 			velocity.y =+ 400
 			doing_action = true
 			$Swing.pitch_scale = randf_range(1.5, 2.0)
