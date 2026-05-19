@@ -706,7 +706,7 @@ radius = 34.0147
 radius = 20.0
 height = 70.0
 
-[node name="Boss" type="CharacterBody2D" unique_id=2031104383]
+[node name="Boss" type="CharacterBody2D" unique_id=2031104383 groups=["Boss"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_qnbj4")
@@ -727,13 +727,13 @@ shape = SubResource("CircleShape2D_vu5x8")
 position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_i78ob")
 
-[node name="hurtbox_fase2" type="Area2D" parent="." unique_id=1048525140]
+[node name="hurtbox_fase2" type="Area2D" parent="." unique_id=1048525140 groups=["Boss"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase2" unique_id=76961577]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_3uowd")
 
-[node name="hurtbox_fase1" type="Area2D" parent="." unique_id=1407293056]
+[node name="hurtbox_fase1" type="Area2D" parent="." unique_id=1407293056 groups=["Boss"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase1" unique_id=331762291]
 position = Vector2(5, 3)

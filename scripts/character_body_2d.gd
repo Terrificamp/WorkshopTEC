@@ -154,7 +154,7 @@ func _throw_tomatoup() -> void:
 	await $AnimatedSprite2D.animation_finished
 	doing_action = false
 func Ataque() -> void:
-	if velocity.x != 0 and velocity.y == 0 and doing_action == false:
+	if velocity.x != 0 and doing_action == false and not Input.is_action_pressed("Baixo"):
 			doing_action = true
 			var ataque = hitbox_scene.instantiate() as Area2D
 			var attackpoint: CharacterBody2D = $"."
@@ -169,7 +169,7 @@ func Ataque() -> void:
 			await $AnimatedSprite2D.animation_finished
 			doing_action = false
 			$AnimatedSprite2D.speed_scale = 0
-	elif not velocity.x != 0 and velocity.y == 0 and doing_action == false:
+	elif not velocity.x != 0 and doing_action == false and not Input.is_action_pressed("Baixo"):
 			doing_action = true
 			var ataque = hitbox_scene.instantiate() as Area2D
 			var attackpoint: CharacterBody2D = $"."

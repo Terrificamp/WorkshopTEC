@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://ce78gi0nya276" path="res://Sounds/400 Sounds Pack/Retro/jump_square.wav" id="10_3mh82"]
 [ext_resource type="AudioStream" uid="uid://bwsqem8uk7kvi" path="res://Sounds/400 Sounds Pack/Other/elastic_twang.wav" id="13_8qne3"]
 [ext_resource type="Texture2D" uid="uid://cgv3dwveba77i" path="res://sprites/Junkins 32/Junkins Dash VFX.png" id="16_8qne3"]
-[ext_resource type="AudioStream" uid="uid://cjwq5k4geexiy" path="res://Sounds/400 Sounds Pack/Weapons/sword_slice.wav" id="19_uct0u"]
+[ext_resource type="AudioStream" uid="uid://gyqihyyh1r58" path="res://Sounds/400 Sounds Pack/Human/man_9.wav" id="20_pa385"]
 [ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="21_pa385"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2agh7"]
@@ -405,7 +405,8 @@ shape = SubResource("CapsuleShape2D_uct0u")
 debug_color = Color(0.86519283, 0.35652888, 0.027832666, 0.41960785)
 
 [node name="Swing" type="AudioStreamPlayer2D" parent="." unique_id=1570867483]
-stream = ExtResource("19_uct0u")
+stream = ExtResource("20_pa385")
+volume_db = 8.0
 
 [node name="CrashDwn" type="CPUParticles2D" parent="." unique_id=1387394348]
 emitting = false
