@@ -9,12 +9,52 @@
 [ext_resource type="Texture2D" uid="uid://bvilne24tdqdf" path="res://Junkins Tomato.png" id="4_b6vvx"]
 [ext_resource type="Texture2D" uid="uid://b1bmu1h8bg5xx" path="res://sprites/Junkins 32/Junkins Dying.png" id="4_pxny4"]
 [ext_resource type="Texture2D" uid="uid://b4w0hsgwbvsxx" path="res://sprites/Junkins 32/Junkins Dash.png" id="4_sjuf0"]
+[ext_resource type="Texture2D" uid="uid://qmjl38ddrehl" path="res://sprites/Junkins 32/Junkins Meele L R.png" id="4_sv2bb"]
+[ext_resource type="Texture2D" uid="uid://ckiq870lf3vih" path="res://sprites/Junkins 32/Junkins Meele Down.png" id="5_uct0u"]
+[ext_resource type="Texture2D" uid="uid://3h7ebw5iupyt" path="res://sprites/Junkins 32/Junkins Meele L R while walking.png" id="6_4p8vt"]
 [ext_resource type="AudioStream" uid="uid://bemcte4x5xl4y" path="res://Sounds/400 Sounds Pack/Other/whoosh_1.wav" id="7_wcoi3"]
 [ext_resource type="AudioStream" uid="uid://opulxd4whp7x" path="res://Sounds/400 Sounds Pack/Footsteps/foley_footstep_vinyl_1.wav" id="8_u82m8"]
 [ext_resource type="Script" uid="uid://ceyildr4or76q" path="res://scripts/walk.gd" id="9_avsoh"]
 [ext_resource type="AudioStream" uid="uid://ce78gi0nya276" path="res://Sounds/400 Sounds Pack/Retro/jump_square.wav" id="10_3mh82"]
 [ext_resource type="AudioStream" uid="uid://bwsqem8uk7kvi" path="res://Sounds/400 Sounds Pack/Other/elastic_twang.wav" id="13_8qne3"]
 [ext_resource type="Texture2D" uid="uid://cgv3dwveba77i" path="res://sprites/Junkins 32/Junkins Dash VFX.png" id="16_8qne3"]
+[ext_resource type="AudioStream" uid="uid://cjwq5k4geexiy" path="res://Sounds/400 Sounds Pack/Weapons/sword_slice.wav" id="19_uct0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2agh7"]
+atlas = ExtResource("4_sv2bb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr420"]
+atlas = ExtResource("4_sv2bb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c8vk"]
+atlas = ExtResource("4_sv2bb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6n5r"]
+atlas = ExtResource("4_sv2bb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3pos"]
+atlas = ExtResource("5_uct0u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgpw1"]
+atlas = ExtResource("6_4p8vt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_737x5"]
+atlas = ExtResource("6_4p8vt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c32mv"]
+atlas = ExtResource("6_4p8vt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh48i"]
+atlas = ExtResource("6_4p8vt")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv2bb"]
 atlas = ExtResource("4_sjuf0")
@@ -114,6 +154,48 @@ region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d2b0d"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2agh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr420")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c8vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6n5r")
+}],
+"loop": 0,
+"name": &"Attack",
+"speed": 19.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_n3pos")
+}],
+"loop": 0,
+"name": &"AttackDwn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgpw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_737x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c32mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh48i")
+}],
+"loop": 0,
+"name": &"AttackWalk",
+"speed": 19.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sv2bb")
@@ -250,7 +332,7 @@ damage_marker_scene = ExtResource("3_ihh7x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=63621339]
 sprite_frames = SubResource("SpriteFrames_d2b0d")
-animation = &"Dash"
+animation = &"Attack"
 
 [node name="Timer" type="Timer" parent="AnimatedSprite2D" unique_id=1482733032]
 
@@ -312,5 +394,19 @@ anim_speed_max = -1.0
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_1clno")
 debug_color = Color(0.86519283, 0.35652888, 0.027832666, 0.41960785)
+
+[node name="Swing" type="AudioStreamPlayer2D" parent="." unique_id=1570867483]
+stream = ExtResource("19_uct0u")
+
+[node name="CrashDwn" type="CPUParticles2D" parent="." unique_id=1387394348]
+emitting = false
+amount = 16
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
 
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]
