@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var projetil_scene: PackedScene
 var is_real = false
 var can_attack = false
-var 
 var projetil_direction 
 
 
@@ -25,10 +24,10 @@ func _throw_projetil() -> void:
 	#vazer aviso
 	
 	if !can_attack:
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("idle_fase1")
 		return
 
-	$AnimatedSprite2D.play("preparing")
+	$AnimatedSprite2D.play("preparing_fase1")
 	await $AnimatedSprite2D.animation_finished
 	
 	var projetil = projetil_scene.instantiate() as CharacterBody2D

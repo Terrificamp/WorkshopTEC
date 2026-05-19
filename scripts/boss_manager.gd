@@ -30,10 +30,10 @@ func start_attack_loop() -> void:
 
 func switch_boss(): #implement the animations
 
-	$"../Boss1/AnimatedSprite2D".play("hit")
+	$"../Boss1/AnimatedSprite2D".play("hit_fase1")
 	await $"../Boss1/AnimatedSprite2D".animation_finished
 	
-	$"../Boss2/AnimatedSprite2D".play("hit")
+	$"../Boss2/AnimatedSprite2D".play("hit_fase1")
 	await $"../Boss2/AnimatedSprite2D".animation_finished
 
 
