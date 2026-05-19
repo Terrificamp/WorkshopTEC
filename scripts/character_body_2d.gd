@@ -16,7 +16,10 @@ var dashing = false
 func _ready() -> void:
 	Global.jenkinshp = 5
 	Global.take_damege_player.connect(take_damage)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 602b2176d0900bb022bb40aa3d1a837ad81f67d9
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -52,7 +55,10 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.speed_scale = 1
 
 	move_and_slide()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 602b2176d0900bb022bb40aa3d1a837ad81f67d9
 		
 
 	if throw_cooldown > 0.0:

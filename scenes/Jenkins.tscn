@@ -227,7 +227,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1clno"]
 radius = 4.0
-height = 14.0
+height = 24.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71byh"]
 particles_animation = true
@@ -255,7 +255,7 @@ animation = &"Dash"
 [node name="Timer" type="Timer" parent="AnimatedSprite2D" unique_id=1482733032]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658032353]
-position = Vector2(0, 9)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_1clno")
 
 [node name="ThrowPoint" type="Marker2D" parent="." unique_id=1266697222]
@@ -309,7 +309,7 @@ anim_speed_max = -1.0
 [node name="Area2D" type="Area2D" parent="." unique_id=1334172186]
 
 [node name="hurtbox" type="CollisionShape2D" parent="Area2D" unique_id=1332153920]
-position = Vector2(0, 9)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_1clno")
 debug_color = Color(0.86519283, 0.35652888, 0.027832666, 0.41960785)
 
