@@ -4,15 +4,21 @@ extends CharacterBody2D
 var is_real = false
 var can_attack = false
 var projetil_direction 
+
+
+
 func _ready() -> void:
 	start_attack_loop()
 	
 
 
 func start_attack_loop() -> void:
-	while Global:
+	while Global.phase == 1:
 		await get_tree().create_timer(2).timeout
 		_throw_projetil()
+	while Global.phase == 2:
+		await get_tree().create_timer(2).timeout
+		_attack_phase1()
 		
 
 func _throw_projetil() -> void:
@@ -41,7 +47,8 @@ func _throw_projetil() -> void:
 	var direcao = (player.global_position - global_position).normalized()
 	projetil.velocity = direcao * 300.0
 	
-
+func _attack_phase1() -> void:
+	pass
 	
 	
 	
