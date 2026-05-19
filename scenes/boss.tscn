@@ -736,4 +736,5 @@ shape = SubResource("CapsuleShape2D_qnbj4")
 [node name="Timer" type="Timer" parent="." unique_id=1425866346]
 
 [connection signal="area_entered" from="hurtbox_fase2" to="." method="_on_hurtbox_fase_2_area_entered"]
+[connection signal="body_entered" from="hurtbox_fase2" to="." method="_on_hurtbox_fase_2_body_entered"]
 [connection signal="body_entered" from="hurtbox_fase1" to="." method="_on_hurtbox_fase_1_body_entered"]

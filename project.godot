@@ -32,6 +32,7 @@ project/assembly_name="Novo Projeto de Jogo"
 
 Projectile=""
 HitPlayer=""
+PlayerProjectile=""
 
 [input]
 

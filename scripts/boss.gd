@@ -59,7 +59,10 @@ func _attack_phase1() -> void:
 
 func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
 	print(area.name)
-	if area.is_in_group("HitPlayer"):
+	if area.is_in_group("PlayerProjectile"):
+		Global.boss_life -= 1.5
+		print(Global.boss_life)
+	elif area.is_in_group("HitPlayer"):
 		Global.boss_life -= 1
 		print(Global.boss_life)
 	pass # Replace with function body.

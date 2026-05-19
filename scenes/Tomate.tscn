@@ -92,9 +92,12 @@ _data = {
 &"RESET": SubResource("Animation_owyin")
 }
 
-[node name="Tomato" type="RigidBody2D" unique_id=1949809588]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbv4y"]
+radius = 10.049875
+
+[node name="Tomato" type="RigidBody2D" unique_id=1949809588 groups=["HitPlayer"]]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 4
 freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
@@ -115,5 +118,12 @@ libraries/ = SubResource("AnimationLibrary_0deh8")
 
 [node name="Splat" type="AudioStreamPlayer2D" parent="." unique_id=1131646413]
 stream = ExtResource("4_mbv4y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1947554259 groups=["HitPlayer", "PlayerProjectile"]]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=516950351]
+shape = SubResource("CircleShape2D_mbv4y")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
