@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qfibu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Giro",
 "speed": 9.0
 }, {
@@ -48,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lsrol")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Pop",
 "speed": 5.0
 }]

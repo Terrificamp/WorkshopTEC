@@ -5,30 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://cc4u0pnvuvo13" path="res://scenes/Tomate.tscn" id="2_sohmc"]
 [ext_resource type="Texture2D" uid="uid://cjvorfa058qyh" path="res://Junkins Jump.png" id="3_1clno"]
 [ext_resource type="Texture2D" uid="uid://diut1usxql7nm" path="res://Junkins Walk.png" id="3_b6vvx"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://ov2g5paqbcbo" path="res://sprite_2d.tscn" id="3_ihh7x"]
-=======
 [ext_resource type="PackedScene" uid="uid://ov2g5paqbcbo" path="res://scenes/sprite_2d.tscn" id="3_ihh7x"]
 [ext_resource type="Texture2D" uid="uid://xum8eukqpsho" path="res://Junkins Meele L R.png" id="4_71byh"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://bvilne24tdqdf" path="res://Junkins Tomato.png" id="4_b6vvx"]
 [ext_resource type="Texture2D" uid="uid://b1bmu1h8bg5xx" path="res://sprites/Junkins 32/Junkins Dying.png" id="4_pxny4"]
 [ext_resource type="Texture2D" uid="uid://b4w0hsgwbvsxx" path="res://sprites/Junkins 32/Junkins Dash.png" id="4_sjuf0"]
 [ext_resource type="AudioStream" uid="uid://cjwq5k4geexiy" path="res://Sounds/400 Sounds Pack/Weapons/sword_slice.wav" id="4_sv2bb"]
 [ext_resource type="Texture2D" uid="uid://3h7ebw5iupyt" path="res://sprites/Junkins 32/Junkins Meele L R while walking.png" id="5_sv2bb"]
-[ext_resource type="Texture2D" uid="uid://ckiq870lf3vih" path="res://sprites/Junkins 32/Junkins Meele Down.png" id="6_uct0u"]
 [ext_resource type="AudioStream" uid="uid://bemcte4x5xl4y" path="res://Sounds/400 Sounds Pack/Other/whoosh_1.wav" id="7_wcoi3"]
 [ext_resource type="AudioStream" uid="uid://opulxd4whp7x" path="res://Sounds/400 Sounds Pack/Footsteps/foley_footstep_vinyl_1.wav" id="8_u82m8"]
-[ext_resource type="Script" uid="uid://ceyildr4or76q" path="res://scenes/walk.gd" id="9_avsoh"]
+[ext_resource type="Script" uid="uid://ceyildr4or76q" path="res://scripts/walk.gd" id="9_avsoh"]
 [ext_resource type="AudioStream" uid="uid://ce78gi0nya276" path="res://Sounds/400 Sounds Pack/Retro/jump_square.wav" id="10_3mh82"]
-[ext_resource type="Script" uid="uid://dscva5rsmmhj8" path="res://scenes/camera_2d.gd" id="12_r0mt0"]
 [ext_resource type="AudioStream" uid="uid://bwsqem8uk7kvi" path="res://Sounds/400 Sounds Pack/Other/elastic_twang.wav" id="13_8qne3"]
 [ext_resource type="Texture2D" uid="uid://cgv3dwveba77i" path="res://sprites/Junkins 32/Junkins Dash VFX.png" id="16_8qne3"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="17_71byh"]
-[ext_resource type="Script" uid="uid://f5cdk4e0da2h" path="res://scenes/damage_2.gd" id="18_sv2bb"]
-=======
-[ext_resource type="Texture2D" uid="uid://b4dilx1pbpnc2" path="res://sprites/Smoke/FX001/sprite_sheet.png" id="20_4p8vt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2agh7"]
 atlas = ExtResource("4_71byh")
@@ -46,10 +35,6 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("4_71byh")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nh48i"]
-atlas = ExtResource("6_uct0u")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3pos"]
 atlas = ExtResource("5_sv2bb")
 region = Rect2(0, 0, 32, 32)
@@ -65,7 +50,6 @@ region = Rect2(0, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c32mv"]
 atlas = ExtResource("5_sv2bb")
 region = Rect2(32, 32, 32, 32)
->>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv2bb"]
 atlas = ExtResource("4_sjuf0")
@@ -183,14 +167,6 @@ animations = [{
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_nh48i")
-}],
-"loop": 0,
-"name": &"AttackDwn",
-"speed": 5.0
-}, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n3pos")
 }, {
@@ -226,7 +202,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tf8lp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 5.0
 }, {
@@ -243,7 +219,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_71byh")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dying",
 "speed": 5.0
 }, {
@@ -254,7 +230,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_j41ne")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Hit",
 "speed": 15.0
 }, {
@@ -271,7 +247,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c1406")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -279,7 +255,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b6vvx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -296,7 +272,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qx66x")
 }],
-"loop": false,
+"loop": 0,
 "name": &"ThrowTomato",
 "speed": 15.0
 }, {
@@ -313,7 +289,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_337yl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 5.0
 }]
@@ -321,42 +297,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1clno"]
 radius = 4.0
 height = 14.0
-
-[sub_resource type="Animation" id="Animation_pxny4"]
-resource_name = "Endgame"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.54),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_j41ne"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjuf0"]
-_data = {
-&"Endgame": SubResource("Animation_pxny4"),
-&"RESET": SubResource("Animation_j41ne")
-}
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71byh"]
 particles_animation = true
@@ -372,16 +312,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 offsets = PackedFloat32Array(0.8765432, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pa385"]
-particles_animation = true
-particles_anim_h_frames = 3
-particles_anim_v_frames = 2
-particles_anim_loop = false
-
-[sub_resource type="Gradient" id="Gradient_5o1bk"]
-offsets = PackedFloat32Array(0.29310346, 1)
-colors = PackedColorArray(0.59614915, 0.26301217, 2.8878452e-07, 1, 1, 1, 1, 0)
-
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1045322586]
 script = ExtResource("1_yknpa")
 tomato_scene = ExtResource("2_sohmc")
@@ -395,7 +325,9 @@ pitch_scale = 1.52
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=63621339]
 sprite_frames = SubResource("SpriteFrames_d2b0d")
-animation = &"AttackDwn"
+animation = &"AttackWalk"
+frame = 3
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="AnimatedSprite2D" unique_id=1482733032]
 
@@ -424,22 +356,7 @@ volume_db = -2.187
 
 [node name="Damage" type="AudioStreamPlayer2D" parent="." unique_id=1091282720]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=316435144]
-zoom = Vector2(2.725, 2.725)
-script = ExtResource("12_r0mt0")
-
 [node name="Dash2" type="Timer" parent="." unique_id=1897845486]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=614206683]
-z_index = 10
-offset_left = -234.0
-offset_top = -130.0
-offset_right = 239.0
-offset_bottom = 133.0
-color = Color(0, 0, 0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=1869681859]
-libraries/ = SubResource("AnimationLibrary_sjuf0")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=512436355]
 material = SubResource("CanvasItemMaterial_71byh")
@@ -465,40 +382,5 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 anim_speed_min = -1.0
 anim_speed_max = -1.0
-
-<<<<<<< Updated upstream
-[node name="Control" parent="." unique_id=1641834335 instance=ExtResource("17_71byh")]
-offset_left = -213.0
-offset_top = -165.0
-offset_right = -213.0
-offset_bottom = -165.0
-scale = Vector2(0.5, 0.5)
-offset_transform_scale = Vector2(0.5, 0.5)
-
-[node name="Damage2" type="ColorRect" parent="." unique_id=1640176998]
-offset_left = -228.0
-offset_top = -137.0
-offset_right = 237.0
-offset_bottom = 140.0
-color = Color(0.8392157, 0.21176471, 0, 0)
-script = ExtResource("18_sv2bb")
-=======
-[node name="CrashDwn" type="CPUParticles2D" parent="." unique_id=648176968]
-material = SubResource("CanvasItemMaterial_pa385")
-position = Vector2(0, 15)
-emitting = false
-amount = 15
-texture = ExtResource("20_4p8vt")
-one_shot = true
-speed_scale = 3.29
-explosiveness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 35.0
-color_ramp = SubResource("Gradient_5o1bk")
-anim_speed_min = 1.0
-anim_speed_max = 1.0
->>>>>>> Stashed changes
 
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]

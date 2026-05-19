@@ -2,7 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://d0pmi30jtshq5" path="res://sprites/Land16/PisoA_strip18.png" id="1_pe05s"]
 [ext_resource type="PackedScene" uid="uid://dgn8bfbw5lrqo" path="res://scenes/Jenkins.tscn" id="2_ubi47"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cc4u0pnvuvo13" path="res://scenes/Tomate.tscn" id="3_xywc0"]
+=======
+[ext_resource type="Script" uid="uid://dscva5rsmmhj8" path="res://scripts/camera_2d.gd" id="4_e0tb3"]
+[ext_resource type="PackedScene" uid="uid://dhtntb1abskjv" path="res://scenes/bossManager.tscn" id="4_hak2e"]
+[ext_resource type="PackedScene" uid="uid://b0wqkyk2vxsbt" path="res://scenes/boss.tscn" id="4_v2iww"]
+[ext_resource type="Script" uid="uid://f5cdk4e0da2h" path="res://scripts/damage_2.gd" id="5_e0tb3"]
+[ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="7_87qcp"]
+[ext_resource type="AudioStream" path="res://Sounds/Maintheme.mp3" id="8_mstoo"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubi47"]
 texture = ExtResource("1_pe05s")
@@ -74,5 +83,42 @@ tile_set = SubResource("TileSet_xywc0")
 [node name="Jenkins" parent="." unique_id=1045322586 instance=ExtResource("2_ubi47")]
 position = Vector2(323, 553)
 
+<<<<<<< Updated upstream
 [node name="RigidBody2D" parent="." unique_id=1949809588 instance=ExtResource("3_xywc0")]
 position = Vector2(373, 528)
+=======
+[node name="Damage2" type="ColorRect" parent="Camera2D" unique_id=1841938518]
+z_index = 8
+offset_left = -287.0
+offset_top = -171.0
+offset_right = 269.0
+offset_bottom = 151.0
+color = Color(0.8392157, 0.21176471, 0, 0)
+script = ExtResource("5_e0tb3")
+
+[node name="BossManager" parent="." unique_id=1412643778 instance=ExtResource("4_hak2e")]
+
+[node name="Control" parent="." unique_id=1641834335 instance=ExtResource("7_87qcp")]
+offset_left = 473.0
+offset_top = 641.0
+offset_right = 473.0
+offset_bottom = 641.0
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=403036714]
+z_index = 10
+offset_left = 47.0
+offset_top = 385.0
+offset_right = 603.0
+offset_bottom = 719.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=837273632]
+libraries/ = SubResource("AnimationLibrary_87qcp")
+
+[node name="Main" type="AudioStreamPlayer" parent="." unique_id=604633009]
+stream = ExtResource("8_mstoo")
+autoplay = true
+parameters/looping = true
+>>>>>>> Stashed changes

@@ -13,9 +13,16 @@ var doing_action := false
 var facing_direction := 1
 var dying = false
 var dashing = false
+var onfloor = false
+signal touchingfloor
 func _ready() -> void:
 	Global.jenkinshp = 100
 func _physics_process(delta: float) -> void:
+	if is_on_floor():
+		onfloor = true
+		touchingfloor.emit()
+	else:
+		onfloor = false
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
@@ -26,7 +33,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("Pulo") and velocity.y < 0 and not is_on_floor():
 		$Jump.pitch_scale = 1.5
 		velocity.y *= 0
-
 	var direction := Input.get_axis("Direita", "Esquerda")
 	if not dashing:
 		if direction != 0:
@@ -59,8 +65,13 @@ func _physics_process(delta: float) -> void:
 		_throw_tomato()
 	if Input.is_action_just_pressed("Dash") and doing_action == false:
 		_do_dash()
+<<<<<<< Updated upstream
 	if Input.is_action_just_released("Ataque"):
 		take_damage(5)
+=======
+	if Input.is_action_pressed("Ataque"):
+		Ataque()
+>>>>>>> Stashed changes
 func take_damage(amount: int) -> void:
 	if dying == false:
 		$AnimatedSprite2D.play("Hit")
@@ -119,6 +130,38 @@ func _throw_tomato() -> void:
 	tomato.launch(throw_dir, velocity)
 	await $AnimatedSprite2D.animation_finished
 	doing_action = false
+func Ataque() -> void:
+	if velocity.x != 0 and velocity.y == 0:
+			doing_action = true
+			$Swing.pitch_scale = randf_range(1.5, 2.0)
+			$Swing.play()
+			$AnimatedSprite2D.speed_scale = 1
+			$AnimatedSprite2D.play("AttackWalk")
+			await $AnimatedSprite2D.animation_finished
+			doing_action = false
+			$AnimatedSprite2D.speed_scale = 0
+	elif not velocity.x != 0 and velocity.y == 0:
+			doing_action = true
+			$Swing.pitch_scale = randf_range(1.5, 2.0)
+			$Swing.play()
+			$AnimatedSprite2D.speed_scale = 1
+			$AnimatedSprite2D.play("Attack")
+			await $AnimatedSprite2D.animation_finished
+			doing_action = false
+			$AnimatedSprite2D.speed_scale = 0
+	if velocity.y != 0:
+			velocity.y =+ 400
+			doing_action = true
+			$Swing.pitch_scale = randf_range(1.5, 2.0)
+			$Swing.play()
+			$AnimatedSprite2D.speed_scale = 1
+			$AnimatedSprite2D.play("AttackDwn")
+			await touchingfloor
+			print("iloovetheground")
+			velocity.y =+ -200
+			$CrashDwn.emitting = true
+			doing_action = false
+			$AnimatedSprite2D.speed_scale = 0
 
 func _on_timer_timeout() -> void:
 	pass
