@@ -5,9 +5,6 @@ extends Node2D
 
 
 
-var life_phase1 = 85#20 - 1| 25 - 2| 40 - 3
-
-var phase = 1# 1,2,3
 
 func _ready():
 	
@@ -22,6 +19,13 @@ func _ready():
 	
 	start_attack_loop()
 
+func _process(delta: float) -> void:
+	if Global.boss_life >= 40:
+		Global.phase = 3
+	elif Global.boss_life >= 25:
+		Global.phase = 2
+		
+	
 func start_attack_loop() -> void:
 	while true:
 		await get_tree().create_timer(15).timeout
@@ -47,8 +51,11 @@ func switch_boss(): #implement the animations
 	
 	
 func _take_damege(amount,  boss) -> void:
-	Global.life_phase1 -= amount
+	Global.boss_life -= amount
 	print("asddddddddd")
+	
+	
+	
 	
 	
 	
