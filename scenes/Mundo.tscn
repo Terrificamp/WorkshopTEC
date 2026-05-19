@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://d0pmi30jtshq5" path="res://sprites/Land16/PisoA_strip18.png" id="1_pe05s"]
 [ext_resource type="PackedScene" uid="uid://dgn8bfbw5lrqo" path="res://scenes/Jenkins.tscn" id="2_ubi47"]
 [ext_resource type="PackedScene" uid="uid://cc4u0pnvuvo13" path="res://scenes/Tomate.tscn" id="3_xywc0"]
-[ext_resource type="PackedScene" uid="uid://dd8uwcgqciba8" path="res://scenes/Enemy.tscn" id="4_gejyx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubi47"]
 texture = ExtResource("1_pe05s")
@@ -75,11 +74,5 @@ tile_set = SubResource("TileSet_xywc0")
 [node name="Jenkins" parent="." unique_id=1045322586 instance=ExtResource("2_ubi47")]
 position = Vector2(323, 553)
 
-[node name="Camera2D" type="Camera2D" parent="Jenkins" unique_id=2121575161]
-zoom = Vector2(3.575, 3.575)
-
 [node name="RigidBody2D" parent="." unique_id=1949809588 instance=ExtResource("3_xywc0")]
 position = Vector2(373, 528)
-
-[node name="CharacterBody2D2" parent="." unique_id=1103844858 instance=ExtResource("4_gejyx")]
-position = Vector2(478, 572)

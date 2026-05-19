@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dagmqlhdl56k1"
+path="res://.godot/imported/sitar_inn.wav-c02fd44221f855be6e59f38d6ff8da13.sample"
+
+[deps]
+
+source_file="res://Sounds/400 Sounds Pack/Musical Effects/sitar_inn.wav"
+dest_files=["res://.godot/imported/sitar_inn.wav-c02fd44221f855be6e59f38d6ff8da13.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

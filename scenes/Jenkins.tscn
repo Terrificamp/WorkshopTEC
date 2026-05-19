@@ -5,7 +5,63 @@
 [ext_resource type="PackedScene" uid="uid://cc4u0pnvuvo13" path="res://scenes/Tomate.tscn" id="2_sohmc"]
 [ext_resource type="Texture2D" uid="uid://cjvorfa058qyh" path="res://Junkins Jump.png" id="3_1clno"]
 [ext_resource type="Texture2D" uid="uid://diut1usxql7nm" path="res://Junkins Walk.png" id="3_b6vvx"]
+[ext_resource type="PackedScene" uid="uid://ov2g5paqbcbo" path="res://sprite_2d.tscn" id="3_ihh7x"]
 [ext_resource type="Texture2D" uid="uid://bvilne24tdqdf" path="res://Junkins Tomato.png" id="4_b6vvx"]
+[ext_resource type="Texture2D" uid="uid://b1bmu1h8bg5xx" path="res://sprites/Junkins 32/Junkins Dying.png" id="4_pxny4"]
+[ext_resource type="Texture2D" uid="uid://b4w0hsgwbvsxx" path="res://sprites/Junkins 32/Junkins Dash.png" id="4_sjuf0"]
+[ext_resource type="AudioStream" uid="uid://bemcte4x5xl4y" path="res://Sounds/400 Sounds Pack/Other/whoosh_1.wav" id="7_wcoi3"]
+[ext_resource type="AudioStream" uid="uid://opulxd4whp7x" path="res://Sounds/400 Sounds Pack/Footsteps/foley_footstep_vinyl_1.wav" id="8_u82m8"]
+[ext_resource type="Script" uid="uid://ceyildr4or76q" path="res://scenes/walk.gd" id="9_avsoh"]
+[ext_resource type="AudioStream" uid="uid://ce78gi0nya276" path="res://Sounds/400 Sounds Pack/Retro/jump_square.wav" id="10_3mh82"]
+[ext_resource type="Script" uid="uid://dscva5rsmmhj8" path="res://scenes/camera_2d.gd" id="12_r0mt0"]
+[ext_resource type="AudioStream" uid="uid://bwsqem8uk7kvi" path="res://Sounds/400 Sounds Pack/Other/elastic_twang.wav" id="13_8qne3"]
+[ext_resource type="Texture2D" uid="uid://cgv3dwveba77i" path="res://sprites/Junkins 32/Junkins Dash VFX.png" id="16_8qne3"]
+[ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="17_71byh"]
+[ext_resource type="Script" uid="uid://f5cdk4e0da2h" path="res://scenes/damage_2.gd" id="18_sv2bb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv2bb"]
+atlas = ExtResource("4_sjuf0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uct0u"]
+atlas = ExtResource("4_sjuf0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p8vt"]
+atlas = ExtResource("4_sjuf0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa385"]
+atlas = ExtResource("4_sjuf0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o1bk"]
+atlas = ExtResource("4_sjuf0")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf8lp"]
+atlas = ExtResource("4_sjuf0")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxny4"]
+atlas = ExtResource("4_pxny4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjuf0"]
+atlas = ExtResource("4_pxny4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qne3"]
+atlas = ExtResource("4_pxny4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71byh"]
+atlas = ExtResource("4_pxny4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j41ne"]
+atlas = ExtResource("4_pxny4")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sohmc"]
 atlas = ExtResource("2_1clno")
@@ -63,6 +119,57 @@ region = Rect2(32, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sv2bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uct0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p8vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa385")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o1bk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf8lp")
+}],
+"loop": true,
+"name": &"Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxny4")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_sjuf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qne3")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_71byh")
+}],
+"loop": false,
+"name": &"Dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_j41ne")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_j41ne")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sohmc")
 }, {
 "duration": 1.0,
@@ -74,7 +181,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c1406")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -82,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b6vvx")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -99,7 +206,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qx66x")
 }],
-"loop": 0,
+"loop": false,
 "name": &"ThrowTomato",
 "speed": 15.0
 }, {
@@ -116,7 +223,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_337yl")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Walk",
 "speed": 5.0
 }]
@@ -125,15 +232,64 @@ animations = [{
 radius = 4.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_pxny4"]
+resource_name = "Endgame"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.54),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j41ne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjuf0"]
+_data = {
+&"Endgame": SubResource("Animation_pxny4"),
+&"RESET": SubResource("Animation_j41ne")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71byh"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 3
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_8qne3"]
+offsets = PackedFloat32Array(0.8271605, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_71byh"]
+offsets = PackedFloat32Array(0.8765432, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1045322586]
 script = ExtResource("1_yknpa")
 tomato_scene = ExtResource("2_sohmc")
+damage_marker_scene = ExtResource("3_ihh7x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=63621339]
 sprite_frames = SubResource("SpriteFrames_d2b0d")
-animation = &"ThrowTomato"
-frame = 3
-frame_progress = 1.0
+animation = &"Dash"
 
 [node name="Timer" type="Timer" parent="AnimatedSprite2D" unique_id=1482733032]
 
@@ -142,5 +298,82 @@ position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_1clno")
 
 [node name="ThrowPoint" type="Marker2D" parent="." unique_id=1266697222]
+
+[node name="Throw" type="AudioStreamPlayer2D" parent="." unique_id=1138959365]
+stream = ExtResource("7_wcoi3")
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="." unique_id=1590416911]
+stream = ExtResource("8_u82m8")
+script = ExtResource("9_avsoh")
+
+[node name="Timer" type="Timer" parent="Walk" unique_id=866479062]
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="." unique_id=1429496740]
+stream = ExtResource("13_8qne3")
+volume_db = -2.009
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=378194194]
+stream = ExtResource("10_3mh82")
+volume_db = -2.187
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="." unique_id=1091282720]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=316435144]
+zoom = Vector2(2.725, 2.725)
+script = ExtResource("12_r0mt0")
+
+[node name="Dash2" type="Timer" parent="." unique_id=1897845486]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=614206683]
+z_index = 10
+offset_left = -234.0
+offset_top = -130.0
+offset_right = 239.0
+offset_bottom = 133.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=1869681859]
+libraries/ = SubResource("AnimationLibrary_sjuf0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=512436355]
+material = SubResource("CanvasItemMaterial_71byh")
+position = Vector2(0, 10)
+emitting = false
+amount = 20
+texture = ExtResource("16_8qne3")
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+randomness = 1.0
+spread = 18.27
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 237.62
+linear_accel_max = 100.0
+damping_min = 3.96
+damping_max = 4.95
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_8qne3")
+color_initial_ramp = SubResource("Gradient_71byh")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+anim_speed_min = -1.0
+anim_speed_max = -1.0
+
+[node name="Control" parent="." unique_id=1641834335 instance=ExtResource("17_71byh")]
+offset_left = -213.0
+offset_top = -165.0
+offset_right = -213.0
+offset_bottom = -165.0
+scale = Vector2(0.5, 0.5)
+offset_transform_scale = Vector2(0.5, 0.5)
+
+[node name="Damage2" type="ColorRect" parent="." unique_id=1640176998]
+offset_left = -228.0
+offset_top = -137.0
+offset_right = 237.0
+offset_bottom = 140.0
+color = Color(0.8392157, 0.21176471, 0, 0)
+script = ExtResource("18_sv2bb")
 
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]

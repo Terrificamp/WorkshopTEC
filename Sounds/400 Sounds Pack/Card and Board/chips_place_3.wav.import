@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1pg2q5ue1mtq"
+path="res://.godot/imported/chips_place_3.wav-9198f9838476f1a05228ce8303948056.sample"
+
+[deps]
+
+source_file="res://Sounds/400 Sounds Pack/Card and Board/chips_place_3.wav"
+dest_files=["res://.godot/imported/chips_place_3.wav-9198f9838476f1a05228ce8303948056.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

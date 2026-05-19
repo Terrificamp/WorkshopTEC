@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bjpx6fhb6qk1l"
+path="res://.godot/imported/sitar_level_complete.wav-1a2f0bc2293606523f701a2bec61235d.sample"
+
+[deps]
+
+source_file="res://Sounds/400 Sounds Pack/Musical Effects/sitar_level_complete.wav"
+dest_files=["res://.godot/imported/sitar_level_complete.wav-1a2f0bc2293606523f701a2bec61235d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
