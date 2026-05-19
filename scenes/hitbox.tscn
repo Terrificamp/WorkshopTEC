@@ -61,6 +61,8 @@ _data = {
 }
 
 [node name="Hitbox" type="Area2D" unique_id=1382511612 groups=["HitPlayer"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_0vdsg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553046975]

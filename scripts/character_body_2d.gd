@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		_throw_tomato()
 	if Input.is_action_just_pressed("Dash") and doing_action == false:
 		_do_dash()
-	if Input.is_action_pressed("Ataque"):
+	if Input.is_action_pressed("Ataque") and doing_action == false:
 		Ataque()
 func take_damage(amount: int) -> void:
 	if dying == false:

@@ -702,6 +702,8 @@ radius = 20.0
 height = 70.0
 
 [node name="Boss" type="CharacterBody2D" unique_id=2031104383]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qnbj4")
 projetil_scene = ExtResource("2_wqpjq")
 
@@ -712,28 +714,26 @@ animation = &"hit_fase1"
 autoplay = "idle_fase1"
 
 [node name="colisao_fase2" type="CollisionShape2D" parent="." unique_id=1303021779]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_vu5x8")
 
 [node name="colisao_fase1" type="CollisionShape2D" parent="." unique_id=1372706652]
-visible = false
 position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_i78ob")
 
 [node name="hurtbox_fase2" type="Area2D" parent="." unique_id=1048525140]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase2" unique_id=76961577]
-visible = false
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_3uowd")
 
 [node name="hurtbox_fase1" type="Area2D" parent="." unique_id=1407293056]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase1" unique_id=331762291]
 position = Vector2(5, 3)
 shape = SubResource("CapsuleShape2D_qnbj4")
 
 [node name="Timer" type="Timer" parent="." unique_id=1425866346]
+
+[connection signal="area_entered" from="hurtbox_fase2" to="." method="_on_hurtbox_fase_2_area_entered"]
+[connection signal="body_entered" from="hurtbox_fase1" to="." method="_on_hurtbox_fase_1_body_entered"]

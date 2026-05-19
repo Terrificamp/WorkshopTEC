@@ -4,12 +4,6 @@ extends CharacterBody2D
 var is_real = false
 var can_attack = false
 var projetil_direction 
-
-
-
-
-
-
 func _ready() -> void:
 	start_attack_loop()
 	
@@ -53,3 +47,12 @@ func _throw_projetil() -> void:
 	
 	
 	
+
+
+
+func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
+	print(area.name)
+	if area.is_in_group("HitPlayer"):
+		Global.take_damege_boss.emit(1)
+		print("eusouviadoefuiacertadoporumgostoso")
+	pass # Replace with function body.
