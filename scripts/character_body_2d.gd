@@ -51,6 +51,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	Global.take_damege.connect(take_damage)
+		
+
 	if throw_cooldown > 0.0:
 		throw_cooldown -= delta
 	if Input.is_action_pressed("Tomate") and throw_cooldown <= 0.0 and not doing_action:
@@ -59,8 +62,6 @@ func _physics_process(delta: float) -> void:
 		_throw_tomato()
 	if Input.is_action_just_pressed("Dash") and doing_action == false:
 		_do_dash()
-	if Input.is_action_just_released("Ataque"):
-		take_damage(1)
 func take_damage(amount: int) -> void:
 	if dying == false:
 		$AnimatedSprite2D.play("Hit")

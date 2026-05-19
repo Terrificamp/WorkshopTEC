@@ -306,4 +306,11 @@ hue_variation_max = 1.0
 anim_speed_min = -1.0
 anim_speed_max = -1.0
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1334172186]
+
+[node name="hurtbox" type="CollisionShape2D" parent="Area2D" unique_id=1332153920]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_1clno")
+debug_color = Color(0.86519283, 0.35652888, 0.027832666, 0.41960785)
+
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]

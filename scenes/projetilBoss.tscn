@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ble6ee6dquuan"]
 
+[ext_resource type="Script" uid="uid://d1n1sw7slmh1k" path="res://scripts/projetil_boss.gd" id="1_gih3g"]
 [ext_resource type="Texture2D" uid="uid://bb0knpmmw57jg" path="res://sprites/Espantalho/Forma 1 Projétil 40.png" id="1_wlkl4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wlkl4"]
@@ -42,11 +43,14 @@ animations = [{
 radius = 19.104973
 
 [node name="ProjetilBoss" type="CharacterBody2D" unique_id=243541008]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gih3g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=127981518]
 sprite_frames = SubResource("SpriteFrames_ux1p0")
 animation = &"idle"
-frame_progress = 0.39007202
+frame_progress = 0.0116858
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=739408227]
 position = Vector2(2, 1)

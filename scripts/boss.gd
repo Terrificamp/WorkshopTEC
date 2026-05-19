@@ -1,13 +1,32 @@
 extends CharacterBody2D
 
-var is_real
-var can_attack
+@export var projetil_scene: PackedScene
+var is_real = false
+var can_attack = false
+var projetil_direction 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	start_attack_loop()
 
+func start_attack_loop() -> void:
+	while true:
+		await get_tree().create_timer(2).timeout
+		_throw_projetil()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _throw_projetil() -> void:
+	#vazer aviso
+	
+	if !can_attack:
+		return
+
+	var projetil = projetil_scene.instantiate() as CharacterBody2D
+	get_parent().add_child(projetil)
+	projetil.global_position = global_position
+	projetil._lanch(projetil_direction)
+
+	var player = get_tree().get_first_node_in_group("boss")
+	if player == null:
+		return
+
+	var direcao = (player.global_position - global_position).normalized()
+	projetil.velocity = direcao * 300.0

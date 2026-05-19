@@ -1,9 +1,8 @@
-extends Node
-@onready var jenkinshp = 5
-@onready var speciallevel = 100
-var direction_projetil_boss1 = -1
-var direction_projetil_boss2 = 1
-signal take_damege
+extends CharacterBody2D
+
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +11,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not speciallevel >= 99:
-		speciallevel = speciallevel + 0.1
 	pass
+
+func _physics_process(delta: float) -> void:
+	move_and_slide()  # usa a velocity definida pelo boss
+
+func _lanch(direction) -> void:
+	
+	velocity.x = 300 * direction
+	
+	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvtaqf8s1s3tn" path="res://scripts/boss.gd" id="1_qnbj4"]
 [ext_resource type="Texture2D" uid="uid://bgn7nig2jmdr6" path="res://sprites/Espantalho/Forma 1 Morte.png" id="2_r3bxh"]
+[ext_resource type="PackedScene" uid="uid://ble6ee6dquuan" path="res://scenes/projetilBoss.tscn" id="2_wqpjq"]
 [ext_resource type="Texture2D" uid="uid://bydtlw6u43jch" path="res://sprites/Espantalho/Forma 1 idle 80.png" id="3_wqpjq"]
 [ext_resource type="Texture2D" uid="uid://b1m3afvpiwh6x" path="res://sprites/Espantalho/Forma 1 preparando 80.png" id="4_2cdgk"]
 
@@ -520,6 +521,7 @@ height = 70.0
 
 [node name="Boss" type="CharacterBody2D" unique_id=2031104383]
 script = ExtResource("1_qnbj4")
+projetil_scene = ExtResource("2_wqpjq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=221126839]
 position = Vector2(1, 3)
@@ -537,3 +539,5 @@ shape = SubResource("RectangleShape2D_i78ob")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=331762291]
 position = Vector2(5, 3)
 shape = SubResource("CapsuleShape2D_qnbj4")
+
+[node name="Timer" type="Timer" parent="." unique_id=1425866346]
