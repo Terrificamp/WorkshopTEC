@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0wqkyk2vxsbt"]
 
-[ext_resource type="Script" uid="uid://cvtaqf8s1s3tn" path="res://scripts/boss.gd" id="1_qnbj4"]
+[ext_resource type="Script" uid="uid://cvtaqf8s1s3tn" path="res://scripts/boss_v1.gd" id="1_qnbj4"]
 [ext_resource type="Texture2D" uid="uid://bgn7nig2jmdr6" path="res://sprites/Espantalho/Forma 1 Morte.png" id="2_r3bxh"]
 [ext_resource type="PackedScene" uid="uid://ble6ee6dquuan" path="res://scenes/projetilBoss.tscn" id="2_wqpjq"]
 [ext_resource type="Texture2D" uid="uid://b7xnvsstfhm2i" path="res://sprites/Espantalho/Espantalho/Forma 2 atacando 80.png" id="3_0onds"]
@@ -533,7 +533,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_osgdo")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"dying_fase1",
 "speed": 12.0
 }, {
@@ -720,7 +720,7 @@ projetil_scene = ExtResource("2_wqpjq")
 material = SubResource("ShaderMaterial_8eiau")
 position = Vector2(1, 3)
 sprite_frames = SubResource("SpriteFrames_1wya7")
-animation = &"new_animation"
+animation = &"dying_fase1"
 autoplay = "idle_fase1"
 
 [node name="colisao_fase2" type="CollisionShape2D" parent="." unique_id=1303021779]

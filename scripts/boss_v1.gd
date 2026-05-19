@@ -5,7 +5,7 @@ var is_real = false
 var can_attack = false
 var projetil_direction 
 var is_changing_fase = false
-
+@onready var manager = $"../BossManager"
 
 
 func _ready() -> void:
@@ -52,6 +52,7 @@ func _throw_projetil() -> void:
 func _attack_phase1() -> void:
 	pass
 
+@onready var boss2Shader = $"../Boss2/AnimatedSprite2D".material
 
 func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
 	if !is_real:
@@ -67,4 +68,8 @@ func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout 
 		brilho.set_shader_parameter("flash_amount", 0)
+		manager._check_boss_life()
+	
+	
+	
 	pass # Replace with function body.
