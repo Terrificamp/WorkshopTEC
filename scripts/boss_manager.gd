@@ -20,10 +20,13 @@ func _ready():
 	start_attack_loop()
 
 func _process(delta: float) -> void:
-	if Global.boss_life >= 40:
-		Global.phase = 3
-	elif Global.boss_life >= 25:
+	if Global.boss_life >= 65:
+		Global.phase = 1
+	elif Global.boss_life >= 40:
 		Global.phase = 2
+		
+	elif Global.boss_life >= 20:
+		Global.phase = 3
 		
 	
 func start_attack_loop() -> void:
