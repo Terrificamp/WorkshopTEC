@@ -14,7 +14,7 @@ var facing_direction := 1
 var dying = false
 var dashing = false
 func _ready() -> void:
-	Global.jenkinshp = 100
+	Global.jenkinshp = 5
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -60,12 +60,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dash") and doing_action == false:
 		_do_dash()
 	if Input.is_action_just_released("Ataque"):
-		take_damage(5)
+		take_damage(1)
 func take_damage(amount: int) -> void:
 	if dying == false:
 		$AnimatedSprite2D.play("Hit")
 		camera.shake(8.0, 0.3)
-		Global.jenkinshp = Global.jenkinshp - amount
+		Global.jenkinshp -= amount
+		print("dano:" + var_to_str(amount) + "   vida:" + var_to_str(Global.jenkinshp))
 		if Global.jenkinshp <= 0:
 			dying = true
 			doing_action = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://bnykoavaukksj" path="res://Glass.gdshader" id="1_mehiu"]
 [ext_resource type="Texture2D" uid="uid://dkdy07iaie4ll" path="res://sprites/Glass.png" id="2_lt4yx"]
-[ext_resource type="Script" uid="uid://dnxd1jcj66rb8" path="res://sprite_2d.gd" id="3_i1wwn"]
+[ext_resource type="Script" uid="uid://dnxd1jcj66rb8" path="res://scripts/sprite_2d.gd" id="3_i1wwn"]
 [ext_resource type="AudioStream" uid="uid://0ptkocag66cp" path="res://Sounds/400 Sounds Pack/Retro/hurt.wav" id="3_lt4yx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1wwn"]

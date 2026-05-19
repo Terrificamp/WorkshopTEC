@@ -1,5 +1,5 @@
 extends Node
-@onready var jenkinshp = 100
+@onready var jenkinshp = 5
 @onready var speciallevel = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cc4u0pnvuvo13" path="res://scenes/Tomate.tscn" id="2_sohmc"]
 [ext_resource type="Texture2D" uid="uid://cjvorfa058qyh" path="res://Junkins Jump.png" id="3_1clno"]
 [ext_resource type="Texture2D" uid="uid://diut1usxql7nm" path="res://Junkins Walk.png" id="3_b6vvx"]
-[ext_resource type="PackedScene" uid="uid://ov2g5paqbcbo" path="res://sprite_2d.tscn" id="3_ihh7x"]
+[ext_resource type="PackedScene" uid="uid://ov2g5paqbcbo" path="res://scenes/sprite_2d.tscn" id="3_ihh7x"]
 [ext_resource type="Texture2D" uid="uid://bvilne24tdqdf" path="res://Junkins Tomato.png" id="4_b6vvx"]
 [ext_resource type="Texture2D" uid="uid://b1bmu1h8bg5xx" path="res://sprites/Junkins 32/Junkins Dying.png" id="4_pxny4"]
 [ext_resource type="Texture2D" uid="uid://b4w0hsgwbvsxx" path="res://sprites/Junkins 32/Junkins Dash.png" id="4_sjuf0"]
 [ext_resource type="AudioStream" uid="uid://bemcte4x5xl4y" path="res://Sounds/400 Sounds Pack/Other/whoosh_1.wav" id="7_wcoi3"]
 [ext_resource type="AudioStream" uid="uid://opulxd4whp7x" path="res://Sounds/400 Sounds Pack/Footsteps/foley_footstep_vinyl_1.wav" id="8_u82m8"]
-[ext_resource type="Script" uid="uid://ceyildr4or76q" path="res://scenes/walk.gd" id="9_avsoh"]
+[ext_resource type="Script" uid="uid://ceyildr4or76q" path="res://scripts/walk.gd" id="9_avsoh"]
 [ext_resource type="AudioStream" uid="uid://ce78gi0nya276" path="res://Sounds/400 Sounds Pack/Retro/jump_square.wav" id="10_3mh82"]
 [ext_resource type="AudioStream" uid="uid://bwsqem8uk7kvi" path="res://Sounds/400 Sounds Pack/Other/elastic_twang.wav" id="13_8qne3"]
 [ext_resource type="Texture2D" uid="uid://cgv3dwveba77i" path="res://sprites/Junkins 32/Junkins Dash VFX.png" id="16_8qne3"]
@@ -133,7 +133,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tf8lp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 5.0
 }, {
@@ -150,7 +150,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_71byh")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dying",
 "speed": 5.0
 }, {
@@ -161,7 +161,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_j41ne")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Hit",
 "speed": 15.0
 }, {
@@ -178,7 +178,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c1406")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -186,7 +186,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b6vvx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -203,7 +203,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qx66x")
 }],
-"loop": false,
+"loop": 0,
 "name": &"ThrowTomato",
 "speed": 15.0
 }, {
@@ -220,7 +220,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_337yl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 5.0
 }]
