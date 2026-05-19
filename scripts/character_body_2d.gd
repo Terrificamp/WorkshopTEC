@@ -4,7 +4,7 @@ class_name Player
 @export var tomato_scene: PackedScene
 @export var throw_interval := 0.6 
 @export var damage_marker_scene: PackedScene
-@onready var camera: Camera2D = $Camera2D
+@onready var camera: Camera2D = $"../Camera2D"
 @onready var health = Global.jenkinshp
 var throw_cooldown := 0.0
 var SPEED = 150.0
@@ -72,8 +72,8 @@ func take_damage(amount: int) -> void:
 			SPEED = 0
 			$AnimatedSprite2D.play("Dying")
 			await $AnimatedSprite2D.animation_finished
-			$ColorRect/AnimationPlayer.play("Endgame")
-			await $ColorRect/AnimationPlayer.animation_finished
+			$"../ColorRect/AnimationPlayer".play("Endgame")
+			await $"../ColorRect/AnimationPlayer".animation_finished
 			get_tree().reload_current_scene()
 		else:
 			spawn_damage_marker(amount)

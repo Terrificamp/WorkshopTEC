@@ -12,6 +12,7 @@ shader_parameter/reflectionOffset = Vector2(1, 1)
 shader_parameter/reflectionColor = Color(1, 1, 1, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" unique_id=187776743]
+z_index = 9
 material = SubResource("ShaderMaterial_i1wwn")
 texture = ExtResource("2_lt4yx")
 script = ExtResource("3_i1wwn")

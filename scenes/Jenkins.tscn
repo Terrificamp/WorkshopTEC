@@ -13,11 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://opulxd4whp7x" path="res://Sounds/400 Sounds Pack/Footsteps/foley_footstep_vinyl_1.wav" id="8_u82m8"]
 [ext_resource type="Script" uid="uid://ceyildr4or76q" path="res://scenes/walk.gd" id="9_avsoh"]
 [ext_resource type="AudioStream" uid="uid://ce78gi0nya276" path="res://Sounds/400 Sounds Pack/Retro/jump_square.wav" id="10_3mh82"]
-[ext_resource type="Script" uid="uid://dscva5rsmmhj8" path="res://scenes/camera_2d.gd" id="12_r0mt0"]
 [ext_resource type="AudioStream" uid="uid://bwsqem8uk7kvi" path="res://Sounds/400 Sounds Pack/Other/elastic_twang.wav" id="13_8qne3"]
 [ext_resource type="Texture2D" uid="uid://cgv3dwveba77i" path="res://sprites/Junkins 32/Junkins Dash VFX.png" id="16_8qne3"]
-[ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="17_71byh"]
-[ext_resource type="Script" uid="uid://f5cdk4e0da2h" path="res://scenes/damage_2.gd" id="18_sv2bb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv2bb"]
 atlas = ExtResource("4_sjuf0")
@@ -113,46 +110,6 @@ region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_337yl"]
 atlas = ExtResource("3_b6vvx")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mh82"]
-atlas = ExtResource("7_u82m8")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihh7x"]
-atlas = ExtResource("7_u82m8")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0mt0"]
-atlas = ExtResource("7_u82m8")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxny4"]
-atlas = ExtResource("7_u82m8")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j41ne"]
-atlas = ExtResource("7_u82m8")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjuf0"]
-atlas = ExtResource("7_u82m8")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qne3"]
-atlas = ExtResource("8_avsoh")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_71byh"]
-atlas = ExtResource("8_avsoh")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sv2bb"]
-atlas = ExtResource("8_avsoh")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uct0u"]
-atlas = ExtResource("8_avsoh")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d2b0d"]
@@ -266,87 +223,11 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3mh82")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ihh7x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r0mt0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pxny4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j41ne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sjuf0")
-}],
-"loop": 0,
-"name": &"dash",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8qne3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_71byh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sv2bb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uct0u")
-}],
-"loop": 0,
-"name": &"new_animation",
-"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1clno"]
 radius = 4.0
 height = 14.0
-
-[sub_resource type="Animation" id="Animation_pxny4"]
-resource_name = "Endgame"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.54),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_j41ne"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjuf0"]
-_data = {
-&"Endgame": SubResource("Animation_pxny4"),
-&"RESET": SubResource("Animation_j41ne")
-}
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71byh"]
 particles_animation = true
@@ -398,22 +279,7 @@ volume_db = -2.187
 
 [node name="Damage" type="AudioStreamPlayer2D" parent="." unique_id=1091282720]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=316435144]
-zoom = Vector2(2.725, 2.725)
-script = ExtResource("12_r0mt0")
-
 [node name="Dash2" type="Timer" parent="." unique_id=1897845486]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=614206683]
-z_index = 10
-offset_left = -234.0
-offset_top = -130.0
-offset_right = 239.0
-offset_bottom = 133.0
-color = Color(0, 0, 0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=1869681859]
-libraries/ = SubResource("AnimationLibrary_sjuf0")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=512436355]
 material = SubResource("CanvasItemMaterial_71byh")
@@ -439,21 +305,5 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 anim_speed_min = -1.0
 anim_speed_max = -1.0
-
-[node name="Control" parent="." unique_id=1641834335 instance=ExtResource("17_71byh")]
-offset_left = -213.0
-offset_top = -165.0
-offset_right = -213.0
-offset_bottom = -165.0
-scale = Vector2(0.5, 0.5)
-offset_transform_scale = Vector2(0.5, 0.5)
-
-[node name="Damage2" type="ColorRect" parent="." unique_id=1640176998]
-offset_left = -228.0
-offset_top = -137.0
-offset_right = 237.0
-offset_bottom = 140.0
-color = Color(0.8392157, 0.21176471, 0, 0)
-script = ExtResource("18_sv2bb")
 
 [connection signal="timeout" from="AnimatedSprite2D/Timer" to="." method="_on_timer_timeout"]
