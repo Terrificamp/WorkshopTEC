@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var speed := 200.0
+var speed := 400.0
 var trail: Line2D
 var max_trail_points := 40
 
@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func launch(direction: Vector2, playerspeed: Variant) -> void:
 	linear_velocity = direction * speed + playerspeed
-	linear_velocity.y = -350
+	linear_velocity.y = -150
 
 func _process(delta: float) -> void:
 	trail.add_point(global_position)
@@ -32,6 +32,8 @@ func _process(delta: float) -> void:
 		trail.remove_point(0)
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	$Splat.pitch_scale = randf_range(0.9, 1.3)
+	$Splat.play()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$".".freeze_mode = $".".FREEZE_MODE_STATIC
 	$".".set_deferred("freeze", true)

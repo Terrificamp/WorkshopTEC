@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8ym62mu8tgay"
+path="res://.godot/imported/glass_ping_small.wav-3f8a8106c5d406b65528e22f15d1c4ca.sample"
+
+[deps]
+
+source_file="res://Sounds/400 Sounds Pack/Materials/glass_ping_small.wav"
+dest_files=["res://.godot/imported/glass_ping_small.wav-3f8a8106c5d406b65528e22f15d1c4ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

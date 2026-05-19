@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cb328yiern2x7"
+path="res://.godot/imported/select_3.wav-3482abb04bcec91d0b29d85f98522228.sample"
+
+[deps]
+
+source_file="res://Sounds/400 Sounds Pack/UI/select_3.wav"
+dest_files=["res://.godot/imported/select_3.wav-3482abb04bcec91d0b29d85f98522228.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

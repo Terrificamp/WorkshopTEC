@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bkhyjpl3or0yv"
+path="res://.godot/imported/paper_scrunch.wav-912ba1ab57427fc4dbe7f37515177f5d.sample"
+
+[deps]
+
+source_file="res://Sounds/400 Sounds Pack/Materials/paper_scrunch.wav"
+dest_files=["res://.godot/imported/paper_scrunch.wav-912ba1ab57427fc4dbe7f37515177f5d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
