@@ -5,7 +5,7 @@ extends Node2D
 @onready var boss1Anime = $"../Boss1/AnimatedSprite2D"
 @onready var boss2Anime = $"../Boss2/AnimatedSprite2D"
 
-
+var is_alive = true
 
 func _ready():
 	boss1.is_real = false
@@ -23,11 +23,15 @@ func _process(delta: float) -> void:
 		
 	
 func start_attack_loop() -> void:
-	while true:
+	while is_alive:
 		await get_tree().create_timer(15).timeout
 		switch_boss()
 
 func switch_boss(): #implement the animations
+
+	if!is_alive:
+		return
+	
 
 	boss1Anime.play("hit")
 	await boss1Anime.animation_finished
@@ -47,13 +51,30 @@ func switch_boss(): #implement the animations
 func _check_boss_life() -> void:
 	if Global.boss_life_1 == 0:
 		if boss1.is_real:
-			boss1Anime.play("changing_fase1")
-			await boss1Anime.animation_finished
-		
-			boss2Anime.play("dying_fase1")
+			boss1Anime.play("changing")
+			boss2Anime.play("dying")
+			
+			is_alive = false
+			
 			await boss2Anime.animation_finished
-	
-	
+			await boss1Anime.animation_finished
+			
+			boss1.queue_free()
+			boss2.queue_free()
+			
+			
+		else:
+			boss2Anime.play("changing")
+			boss1Anime.play("dying")
+			
+			is_alive = false
+
+			await boss1Anime.animation_finished
+			await boss2Anime.animation_finished
+			
+			boss1.queue_free()
+			boss2.queue_free()
+			
 	
 	
 	

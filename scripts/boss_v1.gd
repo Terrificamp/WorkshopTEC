@@ -24,10 +24,10 @@ func start_attack_loop() -> void:
 func _throw_projetil() -> void:
 	#vazer aviso
 	
-	if !can_attack:
+	if !can_attack or !manager.is_alive:
 		return
 
-	$AnimatedSprite2D.play("preparing_fase1")
+	$AnimatedSprite2D.play("preparing")
 	await $AnimatedSprite2D.animation_finished
 	
 	var projetil = projetil_scene.instantiate() as CharacterBody2D
@@ -49,22 +49,23 @@ func _throw_projetil() -> void:
 
 @onready var boss2Shader = $"../Boss2/AnimatedSprite2D".material
 
-func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
+func _on_hurtbox_fase_1_area_entered(area: Area2D) -> void:
 	if !is_real:
 		return
 	print(area.name)
 	if area.is_in_group("PlayerProjectile"):
-		Global.boss_life -= 1.5
+		Global.boss_life_1 -= 1.5
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout 
 		brilho.set_shader_parameter("flash_amount", 0)
 	elif area.is_in_group("HitPlayer"):
-		Global.boss_life -= 1
+		Global.boss_life_1 -= 1
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout 
 		brilho.set_shader_parameter("flash_amount", 0)
-		manager._check_boss_life()
-	
+	manager._check_boss_life()
+	print(Global.boss_life_1)
+
 	
 	
 	pass # Replace with function body.
