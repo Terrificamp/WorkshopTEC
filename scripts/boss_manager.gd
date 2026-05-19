@@ -4,6 +4,9 @@ extends Node2D
 @onready var boss2 = $"../Boss2"
 @onready var boss1Shader = $"../Boss1/AnimatedSprite2D".material
 @onready var boss2Shader = $"../Boss2/AnimatedSprite2D".material
+@onready var boss1Anime = $"../Boss1/AnimatedSprite2D"
+@onready var boss2Anime = $"../Boss2/AnimatedSprite2D"
+
 
 
 func _ready():
@@ -29,7 +32,25 @@ func start_attack_loop() -> void:
 		await get_tree().create_timer(15).timeout
 		switch_boss()
 
-
+"""func asdsad() -> void:
+	if Global.boss_life >= 65:
+		Global.phase = 1
+	elif Global.boss_life >= 40:
+		Global.phase = 2
+		if boss1.is_real:
+			$AnimatedSprite2D.play("changing_fase1")
+			boss1.is_changing_fase = true
+			await $AnimatedSprite2D.animation_finished
+		else:
+			$AnimatedSprite2D.play("dying_fase1")
+			is_changing_fase = true
+			await $AnimatedSprite2D.animation_finished
+		is_changing_fase = false
+		
+	elif Global.boss_life >= 20:
+		Global.phase = 3
+		print(Global.boss_life) 
+"""
 func switch_boss(): #implement the animations
 
 	$"../Boss1/AnimatedSprite2D".play("hit_fase1")
@@ -55,9 +76,7 @@ func flashboss2():
 	boss2Shader.set_shader_parameter("flash_amount", 0.5)
 	await get_tree().create_timer(0.1).timeout 
 	boss2Shader.set_shader_parameter("flash_amount", 0)
-func _take_damege(amount,  boss) -> void:
-	Global.boss_life -= amount
-	print("asddddddddd")
+
 
 	
 	

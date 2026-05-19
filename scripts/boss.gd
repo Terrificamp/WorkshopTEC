@@ -4,6 +4,7 @@ extends CharacterBody2D
 var is_real = false
 var can_attack = false
 var projetil_direction 
+var is_changing_fase = false
 
 
 
@@ -26,8 +27,7 @@ func start_attack_loop() -> void:
 func _throw_projetil() -> void:
 	#vazer aviso
 	
-	if !can_attack:
-		$AnimatedSprite2D.play("idle_fase1")
+	if !can_attack or Global.phase != 1 or is_changing_fase:
 		return
 
 	$AnimatedSprite2D.play("preparing_fase1")
@@ -51,12 +51,6 @@ func _throw_projetil() -> void:
 	
 func _attack_phase1() -> void:
 	pass
-	
-	
-	
-	
-	
-
 
 
 func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
@@ -73,11 +67,4 @@ func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout 
 		brilho.set_shader_parameter("flash_amount", 0)
-	if Global.boss_life >= 65:
-		Global.phase = 1
-	elif Global.boss_life >= 40:
-		Global.phase = 2	
-	elif Global.boss_life >= 20:
-		Global.phase = 3
-		print(Global.boss_life)
 	pass # Replace with function body.
