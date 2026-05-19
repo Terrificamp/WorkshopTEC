@@ -60,6 +60,6 @@ func _attack_phase1() -> void:
 func _on_hurtbox_fase_2_area_entered(area: Area2D) -> void:
 	print(area.name)
 	if area.is_in_group("HitPlayer"):
-		Global.take_damege_boss.emit(1)
+		Global.boss_life -= 1
 		print(Global.boss_life)
 	pass # Replace with function body.

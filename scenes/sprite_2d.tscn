@@ -11,6 +11,43 @@ shader_parameter/refractionOffset = Vector2(25, 25)
 shader_parameter/reflectionOffset = Vector2(1, 1)
 shader_parameter/reflectionColor = Color(1, 1, 1, 0.8)
 
+[sub_resource type="Animation" id="Animation_k8p51"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mysbt"]
+resource_name = "disappear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0sl0a"]
+_data = {
+&"RESET": SubResource("Animation_k8p51"),
+&"disappear": SubResource("Animation_mysbt")
+}
+
 [node name="Sprite2D" type="Sprite2D" unique_id=187776743]
 z_index = 9
 material = SubResource("ShaderMaterial_i1wwn")
@@ -20,3 +57,7 @@ script = ExtResource("3_i1wwn")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=84575245]
 stream = ExtResource("3_lt4yx")
 autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=338920405]
+libraries/ = SubResource("AnimationLibrary_0sl0a")
+autoplay = &"disappear"
