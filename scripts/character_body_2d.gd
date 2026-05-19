@@ -57,7 +57,10 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.speed_scale = 1
 
 	move_and_slide()
-
+	if dashing == true:
+		$Area2D/hurtbox.disabled = true
+	else:
+		$Area2D/hurtbox.disabled = false
 	if throw_cooldown > 0.0:
 		throw_cooldown -= delta
 	if Input.is_action_pressed("Tomate") and throw_cooldown <= 0.0 and not doing_action:
