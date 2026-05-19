@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ble6ee6dquuan"]
+
+[ext_resource type="Texture2D" uid="uid://dqgejdgrca53g" path="res://sprites/Espantalho/Forma 1 Projétil 40.png" id="1_wlkl4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gih3g"]
+radius = 13.0
+
+[node name="ProjetilBoss" type="CharacterBody2D" unique_id=243541008]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1870205960]
+texture = ExtResource("1_wlkl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=739408227]
+position = Vector2(-1, -2)
+shape = SubResource("CircleShape2D_gih3g")

@@ -73,7 +73,7 @@ tile_map_data = PackedByteArray("AAACACcAAAAHAAAAAAADACcAAAADAAAAAAAEACcAAAADAAA
 tile_set = SubResource("TileSet_xywc0")
 
 [node name="Jenkins" parent="." unique_id=1045322586 instance=ExtResource("2_ubi47")]
-position = Vector2(323, 553)
+position = Vector2(320, 604)
 
 [node name="Boss1" parent="." unique_id=2031104383 instance=ExtResource("4_v2iww")]
 position = Vector2(541, 581)
