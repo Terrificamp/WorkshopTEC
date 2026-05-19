@@ -5,7 +5,8 @@ extends Node2D
 
 
 
-var life = 20#just a test
+var life_phase1 = 85#20 - 1| 25 - 2| 40 - 3
+
 var phase = 1# 1,2,3
 
 func _ready():

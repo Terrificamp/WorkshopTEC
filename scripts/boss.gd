@@ -30,3 +30,12 @@ func _throw_projetil() -> void:
 
 	var direcao = (player.global_position - global_position).normalized()
 	projetil.velocity = direcao * 300.0
+	
+func _take_damage(amount)-> void:
+	if !is_real:
+		pass
+	
+	
+	
+	
+	
