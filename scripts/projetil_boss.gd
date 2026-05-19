@@ -18,6 +18,9 @@ func _physics_process(delta: float) -> void:
 
 func _lanch(direction) -> void:
 	
+	if direction == 1:
+		$AnimatedSprite2D.flip_h = true
+	
 	velocity.x = 300 * direction
 	
 	

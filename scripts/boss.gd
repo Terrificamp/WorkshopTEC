@@ -19,6 +19,9 @@ func _throw_projetil() -> void:
 	if !can_attack:
 		return
 
+	$AnimatedSprite2D.play("preparing")
+	await $AnimatedSprite2D.animation_finished
+	
 	var projetil = projetil_scene.instantiate() as CharacterBody2D
 	get_parent().add_child(projetil)
 	projetil.global_position = global_position
@@ -30,3 +33,12 @@ func _throw_projetil() -> void:
 
 	var direcao = (player.global_position - global_position).normalized()
 	projetil.velocity = direcao * 300.0
+	
+func _take_damage(amount)-> void:
+	if !is_real:
+		pass
+	
+	
+	
+	
+	

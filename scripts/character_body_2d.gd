@@ -153,8 +153,6 @@ func Ataque() -> void:
 			$AnimatedSprite2D.speed_scale = 1
 			$AnimatedSprite2D.play("AttackDwn")
 			await touchingfloor
-			print("iloovetheground")
-			velocity.y =+ -200
 			$CrashDwn.emitting = true
 			doing_action = false
 			$AnimatedSprite2D.speed_scale = 0
