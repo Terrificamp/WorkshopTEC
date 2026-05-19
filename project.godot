@@ -31,6 +31,7 @@ project/assembly_name="Novo Projeto de Jogo"
 [global_group]
 
 Projectile=""
+HitPlayer=""
 
 [input]
 
