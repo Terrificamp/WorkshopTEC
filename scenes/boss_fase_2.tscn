@@ -369,14 +369,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pdh5e"]
-radius = 32.01562
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn34h"]
-radius = 32.01562
+radius = 34.0147
 
 [node name="boss_fase_2" type="CharacterBody2D" unique_id=1856636768]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_vn34h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=533602796]

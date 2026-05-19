@@ -79,7 +79,7 @@ func _check_boss_life() -> void:
 				as CharacterBody2D
 			)
 
-			$"..".get_parent().add_child(
+			boss1.get_parent().add_child(
 				boss_fase2_instance
 			)
 
