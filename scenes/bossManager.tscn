@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dhtntb1abskjv"]
 
 [ext_resource type="Script" uid="uid://dwvpi8j2ta6hw" path="res://scripts/boss_manager.gd" id="1_jyxqr"]
+[ext_resource type="PackedScene" uid="uid://qinwcnwx8ebf" path="res://scenes/boss_fase_2.tscn" id="2_26ano"]
 
 [node name="BossManager" type="Node2D" unique_id=1412643778]
 script = ExtResource("1_jyxqr")
+boss_fase_2 = ExtResource("2_26ano")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://qinwcnwx8ebf"]
 
 [ext_resource type="Texture2D" uid="uid://jwya8pfun3h6" path="res://Espantalho/Forma 2 atacando 80.png" id="1_pdh5e"]
+[ext_resource type="Script" uid="uid://dq0h6p6gcodfm" path="res://scenes/boss_fase_2.gd" id="1_vn34h"]
 [ext_resource type="Texture2D" uid="uid://7bgrethq726h" path="res://Espantalho/Forma 2 Voltando do ATAQUE 80.png" id="2_vn34h"]
 [ext_resource type="Texture2D" uid="uid://1c3liky78r7v" path="res://Espantalho/Forma 2 Morrendo.png" id="3_ib4m0"]
 [ext_resource type="Texture2D" uid="uid://fju0am14sfk4" path="res://Espantalho/Forma 2 idle 80.png" id="4_681cs"]
@@ -362,17 +363,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdh5e"]
+radius = 32.01562
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vn34h"]
+radius = 32.01562
+
 [node name="boss_fase_2" type="CharacterBody2D" unique_id=1856636768]
+script = ExtResource("1_vn34h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=533602796]
 sprite_frames = SubResource("SpriteFrames_3mw8g")
-animation = &"attacking"
+animation = &"smashed"
 autoplay = "idle"
+frame_progress = 0.47595954
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=401267128]
+[node name="colisao" type="CollisionShape2D" parent="." unique_id=401267128]
+shape = SubResource("CircleShape2D_pdh5e")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2068753148]
+[node name="hurt_box" type="Area2D" parent="." unique_id=2068753148]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1583387012]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box" unique_id=1583387012]
+shape = SubResource("CircleShape2D_vn34h")
 
 [node name="Timer" type="Timer" parent="." unique_id=670424089]
