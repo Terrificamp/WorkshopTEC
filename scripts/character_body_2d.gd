@@ -15,6 +15,7 @@ var dying = false
 var dashing = false
 func _ready() -> void:
 	Global.jenkinshp = 5
+	Global.take_damege_player.connect(take_damage)
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -50,8 +51,6 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.speed_scale = 1
 
 	move_and_slide()
-
-	Global.take_damege.connect(take_damage)
 		
 
 	if throw_cooldown > 0.0:
