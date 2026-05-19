@@ -16,18 +16,15 @@ func _ready() -> void:
 
 
 func start_attack_loop() -> void:
-	while Global.phase == 1:
+	while true:
 		await get_tree().create_timer(2).timeout
 		_throw_projetil()
-	while Global.phase == 2:
-		await get_tree().create_timer(2).timeout
-		_attack_phase1()
-		
+
 
 func _throw_projetil() -> void:
 	#vazer aviso
 	
-	if !can_attack or Global.phase != 1 or is_changing_fase:
+	if !can_attack:
 		return
 
 	$AnimatedSprite2D.play("preparing_fase1")
@@ -49,8 +46,6 @@ func _throw_projetil() -> void:
 	var direcao = (player.global_position - global_position).normalized()
 	projetil.velocity = direcao * 300.0
 	
-func _attack_phase1() -> void:
-	pass
 
 @onready var boss2Shader = $"../Boss2/AnimatedSprite2D".material
 

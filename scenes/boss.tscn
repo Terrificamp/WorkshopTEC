@@ -3,15 +3,10 @@
 [ext_resource type="Script" uid="uid://cvtaqf8s1s3tn" path="res://scripts/boss_v1.gd" id="1_qnbj4"]
 [ext_resource type="Texture2D" uid="uid://bgn7nig2jmdr6" path="res://sprites/Espantalho/Forma 1 Morte.png" id="2_r3bxh"]
 [ext_resource type="PackedScene" uid="uid://ble6ee6dquuan" path="res://scenes/projetilBoss.tscn" id="2_wqpjq"]
-[ext_resource type="Texture2D" uid="uid://b7xnvsstfhm2i" path="res://sprites/Espantalho/Espantalho/Forma 2 atacando 80.png" id="3_0onds"]
 [ext_resource type="Shader" uid="uid://nvl47ow6r0t4" path="res://scenes/boss.gdshader" id="3_lfs1x"]
 [ext_resource type="Texture2D" uid="uid://bydtlw6u43jch" path="res://sprites/Espantalho/Forma 1 idle 80.png" id="3_wqpjq"]
 [ext_resource type="Texture2D" uid="uid://b1m3afvpiwh6x" path="res://sprites/Espantalho/Forma 1 preparando 80.png" id="4_2cdgk"]
 [ext_resource type="Texture2D" uid="uid://b32ilqt2k2kow" path="res://sprites/Espantalho/Forma 1 sumindo 80.png" id="4_wqpjq"]
-[ext_resource type="Texture2D" uid="uid://ddddyhlr3h5dq" path="res://sprites/Espantalho/Espantalho/Forma 2 Voltando do ATAQUE 80.png" id="5_lfs1x"]
-[ext_resource type="Texture2D" uid="uid://d021yttpdp30a" path="res://sprites/Espantalho/Espantalho/Forma 2 idle 80.png" id="8_8eiau"]
-[ext_resource type="Texture2D" uid="uid://b60o6g6oe7j66" path="res://sprites/Espantalho/Espantalho/Forma 2 preparando ataque 80.png" id="10_vn2fc"]
-[ext_resource type="Texture2D" uid="uid://dse14budk4td5" path="res://sprites/Espantalho/Espantalho/Forma 2 esmagando 80.png" id="11_gqd3i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8eiau"]
 shader = ExtResource("3_lfs1x")
@@ -137,22 +132,6 @@ region = Rect2(0, 1120, 80, 80)
 atlas = ExtResource("2_r3bxh")
 region = Rect2(80, 1120, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ib0dk"]
-atlas = ExtResource("5_lfs1x")
-region = Rect2(0, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k5bxm"]
-atlas = ExtResource("5_lfs1x")
-region = Rect2(80, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e0go2"]
-atlas = ExtResource("5_lfs1x")
-region = Rect2(0, 80, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_icamf"]
-atlas = ExtResource("5_lfs1x")
-region = Rect2(80, 80, 80, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnbj4"]
 atlas = ExtResource("2_r3bxh")
 region = Rect2(0, 0, 80, 80)
@@ -277,26 +256,6 @@ region = Rect2(0, 400, 80, 80)
 atlas = ExtResource("3_wqpjq")
 region = Rect2(80, 400, 80, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qvw2j"]
-atlas = ExtResource("8_8eiau")
-region = Rect2(0, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kffk7"]
-atlas = ExtResource("8_8eiau")
-region = Rect2(80, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e2fsw"]
-atlas = ExtResource("8_8eiau")
-region = Rect2(0, 80, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxgcl"]
-atlas = ExtResource("8_8eiau")
-region = Rect2(80, 80, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wjth"]
-atlas = ExtResource("3_0onds")
-region = Rect2(0, 0, 80, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_es0rk"]
 atlas = ExtResource("4_2cdgk")
 region = Rect2(0, 0, 80, 80)
@@ -344,34 +303,6 @@ region = Rect2(0, 400, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xoae0"]
 atlas = ExtResource("4_2cdgk")
 region = Rect2(80, 400, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbor3"]
-atlas = ExtResource("10_vn2fc")
-region = Rect2(0, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6sve4"]
-atlas = ExtResource("10_vn2fc")
-region = Rect2(80, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7ql4"]
-atlas = ExtResource("10_vn2fc")
-region = Rect2(0, 80, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3q3v"]
-atlas = ExtResource("10_vn2fc")
-region = Rect2(80, 80, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0bne"]
-atlas = ExtResource("10_vn2fc")
-region = Rect2(0, 160, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tms16"]
-atlas = ExtResource("10_vn2fc")
-region = Rect2(80, 160, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a7mj6"]
-atlas = ExtResource("11_gqd3i")
-region = Rect2(0, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1wya7"]
 animations = [{
@@ -472,23 +403,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ib0dk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k5bxm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e0go2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_icamf")
-}],
-"loop": 0,
-"name": &"coming_back_fase2",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_qnbj4")
 }, {
 "duration": 1.0,
@@ -551,7 +465,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_b525p")
 }],
 "loop": 0,
-"name": &"hit_fase1",
+"name": &"hit",
 "speed": 17.0
 }, {
 "frames": [{
@@ -592,33 +506,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_5w2ut")
 }],
 "loop": 1,
-"name": &"idle_fase1",
+"name": &"idle",
 "speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qvw2j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kffk7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e2fsw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bxgcl")
-}],
-"loop": 1,
-"name": &"idle_fase2",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wjth")
-}],
-"loop": 1,
-"name": &"new_animation",
-"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -660,47 +549,10 @@ animations = [{
 "loop": 0,
 "name": &"preparing_fase1",
 "speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qbor3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6sve4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h7ql4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b3q3v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c0bne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tms16")
-}],
-"loop": 0,
-"name": &"preparing_fase2",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a7mj6")
-}],
-"loop": 0,
-"name": &"smashed",
-"speed": 5.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vu5x8"]
-radius = 33.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i78ob"]
 size = Vector2(32, 74)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3uowd"]
-radius = 34.0147
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lfs1x"]
 shader = ExtResource("3_lfs1x")
@@ -720,24 +572,16 @@ projetil_scene = ExtResource("2_wqpjq")
 material = SubResource("ShaderMaterial_8eiau")
 position = Vector2(1, 3)
 sprite_frames = SubResource("SpriteFrames_1wya7")
-animation = &"dying_fase1"
-autoplay = "idle_fase1"
-
-[node name="colisao_fase2" type="CollisionShape2D" parent="." unique_id=1303021779]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_vu5x8")
+animation = &"hit"
+autoplay = "idle"
 
 [node name="colisao_fase1" type="CollisionShape2D" parent="." unique_id=1372706652]
+visible = false
 position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_i78ob")
 
-[node name="hurtbox_fase2" type="Area2D" parent="." unique_id=1048525140 groups=["Boss"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase2" unique_id=76961577]
-position = Vector2(-1, 2)
-shape = SubResource("CircleShape2D_3uowd")
-
 [node name="hurtbox_fase1" type="Area2D" parent="." unique_id=1407293056 groups=["Boss"]]
+visible = false
 material = SubResource("ShaderMaterial_lfs1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox_fase1" unique_id=331762291]
@@ -746,6 +590,4 @@ shape = SubResource("CapsuleShape2D_qnbj4")
 
 [node name="Timer" type="Timer" parent="." unique_id=1425866346]
 
-[connection signal="area_entered" from="hurtbox_fase2" to="." method="_on_hurtbox_fase_2_area_entered"]
-[connection signal="body_entered" from="hurtbox_fase2" to="." method="_on_hurtbox_fase_2_body_entered"]
 [connection signal="body_entered" from="hurtbox_fase1" to="." method="_on_hurtbox_fase_1_body_entered"]
