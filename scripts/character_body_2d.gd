@@ -15,11 +15,14 @@ var facing_direction := 1
 var dying = false
 var dashing = false
 var onfloor = false
+var moving = false
 signal touchingfloor
 func _ready() -> void:
 	Global.take_damege_player.connect(take_damage)
 	Global.jenkinshp = 5
 func _physics_process(delta: float) -> void:
+	if velocity.x != 0 :
+		moving = true
 	if is_on_floor():
 		onfloor = true
 		touchingfloor.emit()
@@ -138,6 +141,7 @@ func Ataque() -> void:
 			var attackpoint: CharacterBody2D = $"."
 			ataque.global_position = attackpoint.global_position
 			var throw_dir := Vector2(facing_direction, -0.2).normalized()
+			ataque.start(facing_direction,moving)
 			get_tree().current_scene.add_child(ataque)
 			$Swing.pitch_scale = randf_range(1.5, 2.0)
 			$Swing.play()
@@ -152,6 +156,7 @@ func Ataque() -> void:
 			var attackpoint: CharacterBody2D = $"."
 			ataque.global_position = attackpoint.global_position
 			var throw_dir := Vector2(facing_direction, -0.2).normalized()
+			ataque.start(facing_direction,moving)
 			get_tree().current_scene.add_child(ataque)
 			$Swing.pitch_scale = randf_range(1.5, 2.0)
 			$Swing.play()
@@ -173,6 +178,7 @@ func Ataque() -> void:
 			var attackpoint: CharacterBody2D = $"."
 			ataque.global_position = attackpoint.global_position
 			var throw_dir := Vector2(facing_direction, -0.2).normalized()
+			ataque.dwnslam()
 			get_tree().current_scene.add_child(ataque)
 			$CrashDwn.emitting = true
 			doing_action = false

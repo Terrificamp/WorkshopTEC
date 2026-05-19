@@ -1,9 +1,64 @@
 [gd_scene format=3 uid="uid://b7i3271ad3ilk"]
 
 [ext_resource type="Script" uid="uid://c6iblhty6xg4y" path="res://scenes/hitbox.gd" id="1_0vdsg"]
+[ext_resource type="Texture2D" uid="uid://qouolh7mxua0" path="res://Junkins 32/Efeito ataque.png" id="2_qugoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6lip"]
 size = Vector2(36, 51.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_no6bd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogycc"]
+atlas = ExtResource("2_qugoh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qpvt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogycc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_vf3wv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1h715"]
+resource_name = "Spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbroc"]
+_data = {
+&"RESET": SubResource("Animation_vf3wv"),
+&"Spawn": SubResource("Animation_1h715")
+}
 
 [node name="Hitbox" type="Area2D" unique_id=1382511612 groups=["HitPlayer"]]
 script = ExtResource("1_0vdsg")
@@ -11,3 +66,11 @@ script = ExtResource("1_0vdsg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553046975]
 shape = SubResource("RectangleShape2D_x6lip")
 debug_color = Color(0.99999994, 0.008263231, 0.070646964, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=974464974]
+material = SubResource("CanvasItemMaterial_no6bd")
+sprite_frames = SubResource("SpriteFrames_6qpvt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=775481143]
+libraries/ = SubResource("AnimationLibrary_sbroc")
+autoplay = &"Spawn"
