@@ -34,6 +34,7 @@ Projectile=""
 HitPlayer=""
 PlayerProjectile=""
 Boss=""
+Player=""
 
 [input]
 

@@ -172,7 +172,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q6n5r")
 }],
-"loop": 0,
+"loop": false,
 "name": &"Attack",
 "speed": 19.0
 }, {
@@ -180,7 +180,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_n3pos")
 }],
-"loop": 0,
+"loop": false,
 "name": &"AttackDwn",
 "speed": 5.0
 }, {
@@ -197,7 +197,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nh48i")
 }],
-"loop": 0,
+"loop": false,
 "name": &"AttackWalk",
 "speed": 19.0
 }, {
@@ -220,7 +220,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tf8lp")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Dash",
 "speed": 5.0
 }, {
@@ -237,7 +237,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_71byh")
 }],
-"loop": 0,
+"loop": false,
 "name": &"Dying",
 "speed": 5.0
 }, {
@@ -248,7 +248,7 @@ animations = [{
 "duration": 5.0,
 "texture": SubResource("AtlasTexture_j41ne")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Hit",
 "speed": 15.0
 }, {
@@ -265,7 +265,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c1406")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -273,7 +273,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b6vvx")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -290,7 +290,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qx66x")
 }],
-"loop": 0,
+"loop": false,
 "name": &"ThrowTomato",
 "speed": 15.0
 }, {
@@ -307,7 +307,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_337yl")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Walk",
 "speed": 5.0
 }]
@@ -334,7 +334,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 radius = 4.0
 height = 10.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1045322586]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1045322586 groups=["Player"]]
 script = ExtResource("1_yknpa")
 tomato_scene = ExtResource("2_sohmc")
 hitbox_scene = ExtResource("3_4p8vt")

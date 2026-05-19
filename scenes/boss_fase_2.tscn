@@ -2,11 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://jwya8pfun3h6" path="res://Espantalho/Forma 2 atacando 80.png" id="1_pdh5e"]
 [ext_resource type="Script" uid="uid://dq0h6p6gcodfm" path="res://scenes/boss_fase_2.gd" id="1_vn34h"]
+[ext_resource type="Shader" uid="uid://nvl47ow6r0t4" path="res://scenes/boss.gdshader" id="2_ib4m0"]
 [ext_resource type="Texture2D" uid="uid://7bgrethq726h" path="res://Espantalho/Forma 2 Voltando do ATAQUE 80.png" id="2_vn34h"]
 [ext_resource type="Texture2D" uid="uid://1c3liky78r7v" path="res://Espantalho/Forma 2 Morrendo.png" id="3_ib4m0"]
 [ext_resource type="Texture2D" uid="uid://fju0am14sfk4" path="res://Espantalho/Forma 2 idle 80.png" id="4_681cs"]
 [ext_resource type="Texture2D" uid="uid://c0043ov08vrx1" path="res://Espantalho/Forma 2 preparando ataque 80.png" id="5_khpc2"]
 [ext_resource type="Texture2D" uid="uid://ce8m2c3ir1lhe" path="res://Espantalho/Forma 2 esmagando 80.png" id="6_e3tji"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_681cs"]
+shader = ExtResource("2_ib4m0")
+shader_parameter/flash_amount = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hi4r2"]
 atlas = ExtResource("1_pdh5e")
@@ -198,7 +203,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hi4r2")
 }],
-"loop": 1,
+"loop": true,
 "name": &"attacking",
 "speed": 5.0
 }, {
@@ -215,7 +220,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3tebk")
 }],
-"loop": 0,
+"loop": false,
 "name": &"coming_back",
 "speed": 7.0
 }, {
@@ -310,7 +315,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ck7af")
 }],
-"loop": 0,
+"loop": false,
 "name": &"dying",
 "speed": 12.0
 }, {
@@ -327,7 +332,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cbc8c")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -350,7 +355,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hicxd")
 }],
-"loop": 0,
+"loop": false,
 "name": &"preparing",
 "speed": 9.0
 }, {
@@ -358,7 +363,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dlgmg")
 }],
-"loop": 1,
+"loop": true,
 "name": &"smashed",
 "speed": 5.0
 }]
@@ -370,9 +375,12 @@ radius = 32.01562
 radius = 32.01562
 
 [node name="boss_fase_2" type="CharacterBody2D" unique_id=1856636768]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_vn34h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=533602796]
+material = SubResource("ShaderMaterial_681cs")
 sprite_frames = SubResource("SpriteFrames_3mw8g")
 animation = &"smashed"
 autoplay = "idle"
@@ -387,3 +395,5 @@ shape = SubResource("CircleShape2D_pdh5e")
 shape = SubResource("CircleShape2D_vn34h")
 
 [node name="Timer" type="Timer" parent="." unique_id=670424089]
+
+[connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]
