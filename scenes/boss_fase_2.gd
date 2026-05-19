@@ -9,7 +9,6 @@ var seguindo := false
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	if player == null:
-		push_error("Boss: jogador não encontrado! Adicione o jogador ao grupo 'Player'.")
 		return
 	_entrada_tween()
 func _process(delta: float) -> void:
