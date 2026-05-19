@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cjvorfa058qyh" path="res://Junkins Jump.png" id="3_1clno"]
 [ext_resource type="Texture2D" uid="uid://diut1usxql7nm" path="res://Junkins Walk.png" id="3_b6vvx"]
 [ext_resource type="Texture2D" uid="uid://bvilne24tdqdf" path="res://Junkins Tomato.png" id="4_b6vvx"]
+[ext_resource type="Texture2D" uid="uid://b4w0hsgwbvsxx" path="res://sprites/Junkins 32/Junkins Dash.png" id="7_u82m8"]
+[ext_resource type="Texture2D" uid="uid://b1bmu1h8bg5xx" path="res://sprites/Junkins 32/Junkins Dying.png" id="8_avsoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sohmc"]
 atlas = ExtResource("2_1clno")
@@ -57,6 +59,46 @@ region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_337yl"]
 atlas = ExtResource("3_b6vvx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mh82"]
+atlas = ExtResource("7_u82m8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihh7x"]
+atlas = ExtResource("7_u82m8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0mt0"]
+atlas = ExtResource("7_u82m8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxny4"]
+atlas = ExtResource("7_u82m8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j41ne"]
+atlas = ExtResource("7_u82m8")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjuf0"]
+atlas = ExtResource("7_u82m8")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qne3"]
+atlas = ExtResource("8_avsoh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71byh"]
+atlas = ExtResource("8_avsoh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv2bb"]
+atlas = ExtResource("8_avsoh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uct0u"]
+atlas = ExtResource("8_avsoh")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d2b0d"]
@@ -119,6 +161,46 @@ animations = [{
 "loop": 1,
 "name": &"Walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mh82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihh7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0mt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxny4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j41ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjuf0")
+}],
+"loop": 0,
+"name": &"dash",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qne3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71byh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv2bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uct0u")
+}],
+"loop": 0,
+"name": &"new_animation",
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1clno"]
@@ -131,9 +213,8 @@ tomato_scene = ExtResource("2_sohmc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=63621339]
 sprite_frames = SubResource("SpriteFrames_d2b0d")
-animation = &"ThrowTomato"
-frame = 3
-frame_progress = 1.0
+animation = &"Walk"
+frame_progress = 0.14696057
 
 [node name="Timer" type="Timer" parent="AnimatedSprite2D" unique_id=1482733032]
 
