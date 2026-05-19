@@ -20,13 +20,7 @@ func _ready():
 	start_attack_loop()
 
 func _process(delta: float) -> void:
-	if Global.boss_life >= 65:
-		Global.phase = 1
-	elif Global.boss_life >= 40:
-		Global.phase = 2
-		
-	elif Global.boss_life >= 20:
-		Global.phase = 3
+	pass
 		
 	
 func start_attack_loop() -> void:
@@ -56,6 +50,12 @@ func switch_boss(): #implement the animations
 func _take_damege(amount,  boss) -> void:
 	Global.boss_life -= amount
 	print("asddddddddd")
+	if Global.boss_life >= 65:
+		Global.phase = 1
+	elif Global.boss_life >= 40:
+		Global.phase = 2	
+	elif Global.boss_life >= 20:
+		Global.phase = 3
 	
 	
 	
