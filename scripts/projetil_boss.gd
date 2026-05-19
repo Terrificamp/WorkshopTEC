@@ -22,5 +22,9 @@ func _lanch(direction) -> void:
 		$AnimatedSprite2D.flip_h = true
 	
 	velocity.x = 300 * direction
+
+	await get_tree().create_timer(3).timeout
+	$".".queue_free()
+
 	
 	

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cc4u0pnvuvo13"]
 
-[ext_resource type="Script" uid="uid://bn22e4x0jidlp" path="res://scripts/rigid_body_2d.gd" id="1_utvqs"]
+[ext_resource type="Script" uid="uid://bn22e4x0jidlp" path="res://scripts/tomate.gd" id="1_utvqs"]
 [ext_resource type="Texture2D" uid="uid://d3ym5acissi12" path="res://Tomato Roll.png" id="2_2bqoy"]
 [ext_resource type="Texture2D" uid="uid://barounfjsp6w3" path="res://Tomato Exploded.png" id="3_e1xhd"]
 [ext_resource type="AudioStream" uid="uid://b6wgo7aj22pwr" path="res://Sounds/400 Sounds Pack/Materials/cardboard_hit.wav" id="4_mbv4y"]

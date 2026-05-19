@@ -18,6 +18,14 @@ func _ready():
 	boss2.is_real = true
 	boss2.can_attack = true
 	boss2.projetil_direction = Global.direction_projetil_boss2
+	
+	start_attack_loop()
+
+func start_attack_loop() -> void:
+	while true:
+		await get_tree().create_timer(15).timeout
+		switch_boss()
+
 
 func switch_boss(): #implement the animations
 
@@ -28,6 +36,7 @@ func switch_boss(): #implement the animations
 	boss2.can_attack = !boss2.can_attack
 
 	print("Trocaram!")
+	
 	
 func _take_damege(amount,  boss) -> void:
 	Global.life_phase1 -= amount
