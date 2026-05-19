@@ -26,6 +26,7 @@ func launch(direction: Vector2, playerspeed: Variant) -> void:
 	linear_velocity = direction * speed + playerspeed
 	linear_velocity.y = -250
 func launchUP(direction: Vector2, playerspeed: Variant) -> void:
+	linear_velocity.x = randi_range(100, -100)
 	linear_velocity.y = -850
 
 func _process(delta: float) -> void:
