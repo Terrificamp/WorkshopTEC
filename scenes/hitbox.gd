@@ -30,4 +30,6 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Boss"):
 		$AudioStreamPlayer2D.pitch_scale = randf_range(2.28,3.66)
 		$AudioStreamPlayer2D.play()
+		if Global.speciallevel <= 99:
+			Global.speciallevel += 2
 	pass # Replace with function body.
