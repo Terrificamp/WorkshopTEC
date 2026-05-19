@@ -134,11 +134,12 @@ position = Vector2(565, 587)
 position = Vector2(89, 588)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2121575161]
-position = Vector2(329, 537)
+position = Vector2(330, 509)
 zoom = Vector2(2.2, 2.2)
 script = ExtResource("4_e0tb3")
 
 [node name="Damage2" type="ColorRect" parent="Camera2D" unique_id=1841938518]
+visible = false
 z_index = 8
 offset_left = -287.0
 offset_top = -171.0
@@ -160,6 +161,7 @@ rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=403036714]
+visible = false
 z_index = 10
 offset_left = 47.0
 offset_top = 385.0
