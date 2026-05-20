@@ -38,23 +38,27 @@ func start_attack_loop() -> void:
 
 
 func switch_boss():
-
 	if !is_alive:
 		return
-
 	boss1Anime.play("hit")
-	await boss1Anime.animation_finished
-
 	boss2Anime.play("hit")
+	
+	await boss1Anime.animation_finished
 	await boss2Anime.animation_finished
-
+	
 	boss1.is_real = !boss1.is_real
 	boss2.is_real = !boss2.is_real
-
+	
 	boss1.can_attack = !boss1.can_attack
 	boss2.can_attack = !boss2.can_attack
-
+	
 	print("Trocaram!")
+
+	# O boss que ficou como falso volta para idle
+	if boss1.is_real:
+		boss2Anime.play("idle")
+	else:
+		boss1Anime.play("idle")
 
 
 func _check_boss_life() -> void:
