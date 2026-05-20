@@ -15,6 +15,7 @@ const TRAIL_DURACAO := 0.3     # how long each ghost lasts
 const TRAIL_OPACIDADE := 0.4   # starting opacity of each ghost
 
 func _ready() -> void:
+	get_parent().print_tree_pretty()
 	player = get_tree().get_first_node_in_group("Player")
 	if player == null:
 		return
@@ -114,9 +115,8 @@ func attack() -> void:
 		.set_trans(Tween.TRANS_SINE)
 	$AnimatedSprite2D.play("attacking")
 	await tween.finished
-
-
 	$AnimatedSprite2D.play("smashed")
+	$"../Camera2D".shake(5,1)
 	await get_tree().create_timer(0.2).timeout
 
 	# Volta para cima do jogador
@@ -129,7 +129,6 @@ func attack() -> void:
 		.set_trans(Tween.TRANS_BOUNCE)
 	await tween2.finished
 	$AnimatedSprite2D.play("idle")
-
 	seguindo = true
 	
 	
@@ -144,16 +143,15 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			await get_tree().create_timer(0.1).timeout
 			print(Global.boss_life_2)
 			iframe = false
-		if area.is_in_group("PlayerProjectile"):
-			Global.boss_life_2 -= 1
-			print(Global.boss_life_2)
-			brilho.set_shader_parameter("flash_amount", 0.5)
-			await get_tree().create_timer(0.1).timeout
-			brilho.set_shader_parameter("flash_amount", 0)
-			
-		elif area.is_in_group("HitPlayer"):
-			Global.boss_life_2 -= 1
-			brilho.set_shader_parameter("flash_amount", 0.5)
-			await get_tree().create_timer(0.1).timeout 
-			brilho.set_shader_parameter("flash_amount", 0)
+	if area.is_in_group("PlayerProjectile"):
+		Global.boss_life_2 -= 1
+		print(Global.boss_life_2)
+		brilho.set_shader_parameter("flash_amount", 0.5)
+		await get_tree().create_timer(0.1).timeout
+		brilho.set_shader_parameter("flash_amount", 0)
+	elif area.is_in_group("HitPlayer"):
+		Global.boss_life_2 -= 1
+		brilho.set_shader_parameter("flash_amount", 0.5)
+		await get_tree().create_timer(0.1).timeout 
+		brilho.set_shader_parameter("flash_amount", 0)
 			

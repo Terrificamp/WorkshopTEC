@@ -7,8 +7,8 @@ signal take_damege_player
 signal take_damage_boss1
 signal take_damage_boss2
 var boss_life_1 = 40
-var boss_life_2 = 50
-var boss_life_3 = 80
+var boss_life_2 = 100
+var boss_life_3 = 160
 
 
 

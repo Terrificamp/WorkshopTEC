@@ -374,7 +374,7 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn34h"]
 radius = 34.0147
 
-[node name="boss_fase_2" type="CharacterBody2D" unique_id=1856636768]
+[node name="boss_fase_2" type="CharacterBody2D" unique_id=1856636768 groups=["Boss"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vn34h")
