@@ -6,8 +6,8 @@ var direction_projetil_boss2 = 1
 signal take_damege_player
 signal take_damage_boss1
 signal take_damage_boss2
-var boss_life_1 = 40
-var boss_life_2 = 100
+var boss_life_1 = 30
+var boss_life_2 = 30
 var boss_life_3 = 160
 
 
