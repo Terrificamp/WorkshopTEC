@@ -32,6 +32,8 @@ func switch_boss():
 	boss1Anime.play("hit")
 	await boss1Anime.animation_finished
 	boss2Anime.play("hit")
+	
+	await boss1Anime.animation_finished
 	await boss2Anime.animation_finished
 	boss1.is_real = !boss1.is_real
 	boss2.is_real = !boss2.is_real
