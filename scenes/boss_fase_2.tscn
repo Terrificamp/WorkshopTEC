@@ -205,7 +205,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hi4r2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"attacking",
 "speed": 5.0
 }, {
@@ -222,7 +222,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3tebk")
 }],
-"loop": false,
+"loop": 0,
 "name": &"coming_back",
 "speed": 7.0
 }, {
@@ -317,9 +317,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ck7af")
 }],
-"loop": false,
+"loop": 0,
 "name": &"dying",
-"speed": 12.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -334,7 +334,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cbc8c")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -357,7 +357,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hicxd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"preparing",
 "speed": 9.0
 }, {
@@ -365,7 +365,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dlgmg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"smashed",
 "speed": 5.0
 }]
@@ -394,9 +394,10 @@ script = ExtResource("1_vn34h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=533602796]
 material = SubResource("ShaderMaterial_681cs")
 sprite_frames = SubResource("SpriteFrames_3mw8g")
-animation = &"smashed"
+animation = &"dying"
 autoplay = "idle"
-frame_progress = 0.47595954
+frame = 29
+frame_progress = 1.0
 
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=401267128]
 shape = SubResource("CircleShape2D_pdh5e")

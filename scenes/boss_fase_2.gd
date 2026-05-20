@@ -46,7 +46,7 @@ func start_attack_loop() -> void:
 	while true:
 		await get_tree().create_timer(2.0).timeout
 		await attack()
-		check_hp()
+		await check_hp()
 func _loop_trail() -> void:
 	while trail_ativo and not morto:
 		_spawn_ghost()
@@ -67,11 +67,14 @@ func _spawn_ghost() -> void:
 	tween.tween_property(ghost, "modulate:a", 0.0, TRAIL_DURACAO)
 	await tween.finished
 	ghost.queue_free()
+	
 func check_hp() -> void:
 	if Global.boss_life_2 <= 0 and not morto:
 		morto = true
 		seguindo = false
-		_animacao_morte()
+		
+		await _animacao_morte()
+		queue_free()
 
 func _animacao_morte() -> void:
 	if anim.sprite_frames.has_animation("morte"):
@@ -100,11 +103,11 @@ func _animacao_morte() -> void:
 	await tween.finished
 	queue_free()
 var iframe := false
+
 func attack() -> void:
 	seguindo = false
 
 	var destino = Vector2(global_position.x, 612.5)
-	print(player.global_position.y)
 
 	# Desce até o jogador
 	$AnimatedSprite2D.play("preparing")
@@ -153,6 +156,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		brilho.set_shader_parameter("flash_amount", 0)
 	elif area.is_in_group("HitPlayer"):
 		Global.boss_life_2 -= 1
+		print(Global.boss_life_2)
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout 
 		brilho.set_shader_parameter("flash_amount", 0)
