@@ -10,8 +10,12 @@
 [ext_resource type="Script" uid="uid://kihchcdcowxv" path="res://scenes/h_box_container.gd" id="7_1typj"]
 [ext_resource type="Texture2D" uid="uid://e0ijd7xffxo7" path="res://Coração cheio.png" id="7_7eujk"]
 [ext_resource type="PackedScene" uid="uid://ce5lx6yb4lsg5" path="res://scenes/HUD.tscn" id="7_87qcp"]
+[ext_resource type="FontFile" uid="uid://i83qg2jk712p" path="res://font/manga_temple/mangat.ttf" id="9_6ulxe"]
 [ext_resource type="Texture2D" uid="uid://3pc3scc0u06d" path="res://sprites/Fundo.png" id="9_bpq2i"]
 [ext_resource type="Script" uid="uid://blape2gnjahs0" path="res://scenes/background.gd" id="9_qmqij"]
+[ext_resource type="Script" uid="uid://bsau2ps66kln2" path="res://scenes/label.gd" id="10_yqku5"]
+[ext_resource type="Script" uid="uid://b2sqopgkoe57y" path="res://scenes/button.gd" id="11_28ifr"]
+[ext_resource type="AudioStream" uid="uid://ds8fjfo2f7utj" path="res://Sounds/Mainost.mp3" id="16_0qibw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubi47"]
 texture = ExtResource("1_pe05s")
@@ -200,6 +204,34 @@ offset_transform_enabled = true
 texture = ExtResource("7_7eujk")
 stretch_mode = 4
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Control" unique_id=1262854913]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Camera2D/Control/VBoxContainer" unique_id=1232064153]
+z_index = 4096
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.9355116, 0.52196246, 3.85046e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("9_6ulxe")
+theme_override_font_sizes/font_size = 32
+text = "57
+"
+script = ExtResource("10_yqku5")
+
+[node name="Button" type="Button" parent="Camera2D/Control/VBoxContainer" unique_id=1995602522]
+z_index = 4096
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_6ulxe")
+text = "RESTART"
+script = ExtResource("11_28ifr")
+
 [node name="BossManager" parent="." unique_id=1412643778 instance=ExtResource("4_hak2e")]
 visible = false
 
@@ -218,6 +250,7 @@ offset_left = -50.0
 offset_top = 302.0
 offset_right = 723.0
 offset_bottom = 753.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=837273632]
@@ -233,3 +266,9 @@ z_index = -10
 position = Vector2(336.99997, 526.00006)
 scale = Vector2(0.5078125, 0.51440966)
 texture = ExtResource("9_bpq2i")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=941735735]
+stream = ExtResource("16_0qibw")
+volume_db = -17.369
+autoplay = true
+parameters/looping = true

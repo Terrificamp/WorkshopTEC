@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cq6m1wtpc7pf5"]
+
+[ext_resource type="Script" uid="uid://caobmo3vupl3b" path="res://bomb.gd" id="1_4kkau"]
+[ext_resource type="Shader" uid="uid://dk1qf84vyubsi" path="res://scenes/bomflash.gdshader" id="1_84slv"]
+[ext_resource type="Texture2D" uid="uid://1c3liky78r7v" path="res://Espantalho/Forma 2 Morrendo.png" id="2_vpdcx"]
+[ext_resource type="Texture2D" uid="uid://danh3uj23sr2l" path="res://Junkins 32/Junkins Dash VFX.png" id="3_j15uc"]
+[ext_resource type="AudioStream" uid="uid://5tv2ao0f4f6a" path="res://Sounds/400 Sounds Pack/Retro/explosion_quick.wav" id="5_nxi8k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxi8k"]
+shader = ExtResource("1_84slv")
+shader_parameter/flash_amount = 1.0
+shader_parameter/flash_color = Color(1, 0.3, 0.1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hf1o"]
+shader = ExtResource("1_84slv")
+shader_parameter/flash_amount = 0.0
+shader_parameter/flash_color = Color(1, 0.13624161, 0.37068298, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j15uc"]
+atlas = ExtResource("2_vpdcx")
+region = Rect2(0, 480, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84slv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j15uc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxi8k"]
+radius = 26.076809
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_84slv"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_nxi8k"]
+colors = PackedColorArray(0.951235, 0.5729486, 0, 1, 0.51146835, 0.28268513, 0.023257645, 0)
+
+[sub_resource type="Gradient" id="Gradient_1hf1o"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=107843139]
+material = SubResource("ShaderMaterial_nxi8k")
+script = ExtResource("1_4kkau")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=493400053]
+material = SubResource("ShaderMaterial_1hf1o")
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_84slv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1965366135]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_nxi8k")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1891774143]
+material = SubResource("CanvasItemMaterial_84slv")
+amount = 32
+texture = ExtResource("3_j15uc")
+lifetime = 3.6999999999999997
+emission_shape = 1
+emission_sphere_radius = 11.14
+gravity = Vector2(0, -80)
+color_ramp = SubResource("Gradient_nxi8k")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=917142232]
+material = SubResource("CanvasItemMaterial_84slv")
+amount = 32
+texture = ExtResource("3_j15uc")
+lifetime = 3.6999999999999997
+emission_shape = 1
+emission_sphere_radius = 11.14
+gravity = Vector2(0, -80)
+color_ramp = SubResource("Gradient_1hf1o")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=798986347]
+stream = ExtResource("5_nxi8k")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://jwya8pfun3h6" path="res://Espantalho/Forma 2 atacando 80.png" id="1_pdh5e"]
 [ext_resource type="Script" uid="uid://dq0h6p6gcodfm" path="res://scenes/boss_fase_2.gd" id="1_vn34h"]
+[ext_resource type="PackedScene" uid="uid://cq6m1wtpc7pf5" path="res://scenes/bomb.tscn" id="2_e3tji"]
 [ext_resource type="Shader" uid="uid://nvl47ow6r0t4" path="res://scenes/boss.gdshader" id="2_ib4m0"]
 [ext_resource type="Texture2D" uid="uid://7bgrethq726h" path="res://Espantalho/Forma 2 Voltando do ATAQUE 80.png" id="2_vn34h"]
 [ext_resource type="Texture2D" uid="uid://1c3liky78r7v" path="res://Espantalho/Forma 2 Morrendo.png" id="3_ib4m0"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ce8m2c3ir1lhe" path="res://Espantalho/Forma 2 esmagando 80.png" id="6_e3tji"]
 [ext_resource type="Texture2D" uid="uid://pkhbh0ji81u" path="res://Espantalho/Forma 1 Projetil VFX 40.png" id="9_681cs"]
 [ext_resource type="AudioStream" uid="uid://by4vik0xnl1lc" path="res://Sounds/400 Sounds Pack/Retro/explosion_medium.wav" id="10_khpc2"]
+[ext_resource type="AudioStream" uid="uid://bqjlpmopbrivi" path="res://Sounds/400 Sounds Pack/Retro/power_up.wav" id="12_hi4r2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_681cs"]
 shader = ExtResource("2_ib4m0")
@@ -205,7 +207,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hi4r2")
 }],
-"loop": 1,
+"loop": true,
 "name": &"attacking",
 "speed": 5.0
 }, {
@@ -222,7 +224,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3tebk")
 }],
-"loop": 0,
+"loop": false,
 "name": &"coming_back",
 "speed": 7.0
 }, {
@@ -317,7 +319,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ck7af")
 }],
-"loop": 0,
+"loop": false,
 "name": &"dying",
 "speed": 9.0
 }, {
@@ -334,7 +336,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cbc8c")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 7.0
 }, {
@@ -357,7 +359,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hicxd")
 }],
-"loop": 0,
+"loop": false,
 "name": &"preparing",
 "speed": 9.0
 }, {
@@ -365,13 +367,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dlgmg")
 }],
-"loop": 1,
+"loop": true,
 "name": &"smashed",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pdh5e"]
-radius = 9.0
+radius = 25.317978
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn34h"]
 radius = 34.0147
@@ -390,6 +392,7 @@ colors = PackedColorArray(0.23463538, 0.29046735, 0, 1, 0.35686275, 0.45490196, 
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vn34h")
+bomb_scene = ExtResource("2_e3tji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=533602796]
 material = SubResource("ShaderMaterial_681cs")
@@ -410,6 +413,25 @@ collision_mask = 7
 shape = SubResource("CircleShape2D_vn34h")
 
 [node name="Timer" type="Timer" parent="." unique_id=670424089]
+
+[node name="Drag" type="CPUParticles2D" parent="." unique_id=174118582]
+z_index = 11
+material = SubResource("CanvasItemMaterial_khpc2")
+position = Vector2(0, 40)
+emitting = false
+amount = 16
+texture = ExtResource("9_681cs")
+speed_scale = 2.3
+direction = Vector2(0, -180)
+spread = 85.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_e3tji")
+anim_speed_min = 1.0
+anim_speed_max = 1.5
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=499514282]
 z_index = 11
@@ -433,7 +455,10 @@ anim_speed_max = 1.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1747198572]
 stream = ExtResource("10_khpc2")
-volume_db = -19.0
 pitch_scale = 0.82
+
+[node name="Charge" type="AudioStreamPlayer2D" parent="." unique_id=603404884]
+stream = ExtResource("12_hi4r2")
+pitch_scale = 1.04
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]

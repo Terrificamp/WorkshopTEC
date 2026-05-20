@@ -103,7 +103,7 @@ func take_damage(amount: int) -> void:
 			$Died.play()
 			$"../ColorRect/AnimationPlayer".play("Endgame")
 			await $"../ColorRect/AnimationPlayer".animation_finished
-			get_tree().reload_current_scene()
+			$"../Camera2D/Control/VBoxContainer/Label".show_score()
 		else:
 			$Gothit.play()
 			await get_tree().create_timer(0.6).timeout  # iframe duration

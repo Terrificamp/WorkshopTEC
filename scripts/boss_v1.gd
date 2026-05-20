@@ -54,11 +54,13 @@ func _on_hurtbox_fase_1_area_entered(area: Area2D) -> void:
 		return
 	print(area.name)
 	if area.is_in_group("PlayerProjectile"):
+		Global.boss_damaged.emit(1)
 		Global.boss_life_1 -= 1.5
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout 
 		brilho.set_shader_parameter("flash_amount", 0)
 	elif area.is_in_group("HitPlayer"):
+		Global.boss_damaged.emit(1)
 		Global.boss_life_1 -= 1
 		brilho.set_shader_parameter("flash_amount", 0.5)
 		await get_tree().create_timer(0.1).timeout 

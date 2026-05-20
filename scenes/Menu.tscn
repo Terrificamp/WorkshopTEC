@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://oribe0mebmue"]
+
+[ext_resource type="Texture2D" uid="uid://bgr4o0v18kmhs" path="res://sprites/Inicio.png" id="1_11y2r"]
+[ext_resource type="Script" uid="uid://3cq7nfeakvl5" path="res://scenes/menu.gd" id="1_o0tnf"]
+[ext_resource type="Texture2D" uid="uid://brb2u55ycd2c0" path="res://Logo.png" id="2_o0tnf"]
+[ext_resource type="FontFile" uid="uid://bc5n5gg7iatu8" path="res://font/manga_temple/mangatb.ttf" id="3_jmdev"]
+[ext_resource type="Script" uid="uid://deuplcv4ntf40" path="res://scenes/mainmenu.gd" id="5_jmdev"]
+[ext_resource type="AudioStream" uid="uid://d0fj0350hi37j" path="res://Sounds/Menutheme.mp3" id="6_b6cxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6cxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaywf"]
+
+[node name="Control" type="Control" unique_id=1808138137 node_paths=PackedStringArray("title", "play_button", "background")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_right = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o0tnf")
+title = NodePath("TextureRect2")
+play_button = NodePath("Button")
+background = NodePath("TextureRect")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=167078917]
+position = Vector2(611, 342)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1992097728]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 1193.0
+offset_bottom = 671.0
+texture = ExtResource("1_11y2r")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=438021166]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 22.0
+offset_right = 948.0
+offset_bottom = 404.0
+texture = ExtResource("2_o0tnf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="." unique_id=140419224]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 158.0
+offset_right = 169.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_jmdev")
+theme_override_font_sizes/font_size = 78
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b6cxs")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aaywf")
+text = "JOGAR"
+script = ExtResource("5_jmdev")
+target_scene = "uid://bwrwjplr6vbou"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=568873039]
+stream = ExtResource("6_b6cxs")
+volume_db = -17.369
+autoplay = true
+parameters/looping = true
