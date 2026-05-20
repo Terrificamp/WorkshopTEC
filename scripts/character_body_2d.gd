@@ -16,6 +16,7 @@ var dying = false
 var dashing = false
 var onfloor = false
 var moving = false
+var iframe := false
 signal touchingfloor
 func _ready() -> void:
 	Global.take_damege_player.connect(take_damage)
@@ -59,7 +60,13 @@ func _physics_process(delta: float) -> void:
 		elif velocity.x == 0 and velocity.y == 0:
 			$AnimatedSprite2D.play("Idle")
 			$AnimatedSprite2D.speed_scale = 1
-
+	if Input.is_action_pressed("Botaosecretobombanuclear"):
+		var tomato = tomato_scene.instantiate() as RigidBody2D
+		var throw_point: Marker2D = $ThrowPoint
+		tomato.global_position = throw_point.global_position
+		var throw_dir := Vector2(facing_direction, -0.2).normalized()
+		get_tree().current_scene.add_child(tomato)
+		tomato.launch(throw_dir, velocity)
 	move_and_slide()
 	if dashing == true:
 		$Area2D/hurtbox.disabled = true
@@ -80,7 +87,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Ataque") and doing_action == false:
 		Ataque()
 func take_damage(amount: int) -> void:
-	if dying == false:
+	if dying == false and not iframe:  # add iframe check
+		iframe = true
 		doing_action = false
 		$AnimatedSprite2D.play("Hit")
 		camera.shake(8.0, 0.3)
@@ -98,6 +106,8 @@ func take_damage(amount: int) -> void:
 			get_tree().reload_current_scene()
 		else:
 			$Gothit.play()
+			await get_tree().create_timer(0.6).timeout  # iframe duration
+			iframe = false
 func _do_dash() -> void:
 	if Global.speciallevel <= 35:
 		return
@@ -201,3 +211,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body.name)
 	if body.is_in_group("Projectile"):
 		Global.take_damege_player.emit(1)
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(area.name)
+	if area.is_in_group("Projectile"):
+		Global.take_damege_player.emit(1)
+	pass # Replace with function body.

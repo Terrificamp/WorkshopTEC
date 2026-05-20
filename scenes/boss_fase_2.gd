@@ -116,6 +116,8 @@ func attack() -> void:
 	$AnimatedSprite2D.play("attacking")
 	await tween.finished
 	$AnimatedSprite2D.play("smashed")
+	$CPUParticles2D.emitting = true
+	$AudioStreamPlayer2D.play()
 	$"../Camera2D".shake(5,1)
 	await get_tree().create_timer(0.2).timeout
 

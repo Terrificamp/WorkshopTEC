@@ -397,7 +397,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_giyuy")
 }],
-"loop": 0,
+"loop": false,
 "name": &"changing",
 "speed": 12.0
 }, {
@@ -447,7 +447,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_osgdo")
 }],
-"loop": 0,
+"loop": false,
 "name": &"dying",
 "speed": 12.0
 }, {
@@ -464,7 +464,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b525p")
 }],
-"loop": 0,
+"loop": false,
 "name": &"hit",
 "speed": 17.0
 }, {
@@ -505,7 +505,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5w2ut")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -546,7 +546,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xoae0")
 }],
-"loop": 0,
+"loop": false,
 "name": &"preparing",
 "speed": 12.0
 }]
@@ -564,7 +564,7 @@ height = 70.0
 
 [node name="Boss" type="CharacterBody2D" unique_id=2031104383 groups=["Boss"]]
 collision_layer = 3
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_qnbj4")
 projetil_scene = ExtResource("2_wqpjq")
 

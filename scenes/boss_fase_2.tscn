@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://fju0am14sfk4" path="res://Espantalho/Forma 2 idle 80.png" id="4_681cs"]
 [ext_resource type="Texture2D" uid="uid://c0043ov08vrx1" path="res://Espantalho/Forma 2 preparando ataque 80.png" id="5_khpc2"]
 [ext_resource type="Texture2D" uid="uid://ce8m2c3ir1lhe" path="res://Espantalho/Forma 2 esmagando 80.png" id="6_e3tji"]
+[ext_resource type="Texture2D" uid="uid://pkhbh0ji81u" path="res://Espantalho/Forma 1 Projetil VFX 40.png" id="9_681cs"]
+[ext_resource type="AudioStream" uid="uid://by4vik0xnl1lc" path="res://Sounds/400 Sounds Pack/Retro/explosion_medium.wav" id="10_khpc2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_681cs"]
 shader = ExtResource("2_ib4m0")
@@ -374,7 +376,17 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vn34h"]
 radius = 34.0147
 
-[node name="boss_fase_2" type="CharacterBody2D" unique_id=1856636768 groups=["Boss"]]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_khpc2"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_e3tji"]
+offsets = PackedFloat32Array(0.72839504, 1)
+colors = PackedColorArray(0.23463538, 0.29046735, 0, 1, 0.35686275, 0.45490196, 0.34117648, 0)
+
+[node name="boss_fase_2" type="CharacterBody2D" unique_id=1856636768 groups=["Boss", "Projectile"]]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vn34h")
@@ -389,11 +401,38 @@ frame_progress = 0.47595954
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=401267128]
 shape = SubResource("CircleShape2D_pdh5e")
 
-[node name="hurt_box" type="Area2D" parent="." unique_id=2068753148]
+[node name="hurt_box" type="Area2D" parent="." unique_id=2068753148 groups=["Projectile"]]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box" unique_id=1583387012]
 shape = SubResource("CircleShape2D_vn34h")
 
 [node name="Timer" type="Timer" parent="." unique_id=670424089]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=499514282]
+z_index = 11
+material = SubResource("CanvasItemMaterial_khpc2")
+position = Vector2(0, 20)
+emitting = false
+texture = ExtResource("9_681cs")
+one_shot = true
+speed_scale = 2.3
+explosiveness = 1.0
+direction = Vector2(0, -180)
+spread = 85.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_e3tji")
+anim_speed_min = 1.0
+anim_speed_max = 1.5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1747198572]
+stream = ExtResource("10_khpc2")
+volume_db = -19.0
+pitch_scale = 0.82
 
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]
